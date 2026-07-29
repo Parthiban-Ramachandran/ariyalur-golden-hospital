@@ -69,7 +69,7 @@
         <p class="lead">Every procedure below is performed within the hospital, supported by three C-Arm equipped theatres, in-house imaging and a blood bank.</p>
       </div>
 
-      <div class="grid grid-auto">
+      <div class="grid grid-3">
         <article class="card service-card">
           <span class="icon-badge" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M20.8 4.6a5.5 5.5 0 0 0-7.8 0L12 5.7l-1.1-1.1a5.5 5.5 0 0 0-7.8 7.8l1.1 1.1L12 21.2l7.8-7.7 1-1.1a5.5 5.5 0 0 0 0-7.8z"/></svg></span>
           <h3>Cardiology</h3>
@@ -188,15 +188,22 @@
             <li>Token booking for consultations</li>
           </ul>
           <div class="mt-4">
-            <a class="btn" href="diagnostics.html">Diagnostic Centre</a>
+            <a class="btn" href="scans.html">Scans &amp; Imaging</a>
+            <a class="link-arrow" href="diagnostics.html" style="margin-left:18px">Diagnostic centre</a>
             <a class="link-arrow" href="facilities.html" style="margin-left:18px">View facilities</a>
           </div>
         </div>
-        <div class="media media--tall">
-          <div class="media__inner">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="3" width="20" height="14" rx="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg>
-            <span>Operation Theatre — Image Placeholder</span>
-          </div>
+        <div class="media media--tall media--photo">
+          <picture>
+            <source type="image/webp"
+                    srcset="assets/img/operation-theatre-640.webp 640w, assets/img/operation-theatre.webp 1280w"
+                    sizes="(max-width: 900px) 100vw, 46vw">
+            <img src="assets/img/operation-theatre.jpg"
+                 srcset="assets/img/operation-theatre-640.jpg 640w, assets/img/operation-theatre.jpg 1280w"
+                 sizes="(max-width: 900px) 100vw, 46vw"
+                 width="1280" height="853" loading="lazy" decoding="async"
+                 alt="Operation theatre with a mobile C-Arm imaging unit beside the operating table, twin overhead surgical lights, an anaesthesia workstation and a large wall display showing live X-ray images.">
+          </picture>
         </div>
       </div>
     </div>

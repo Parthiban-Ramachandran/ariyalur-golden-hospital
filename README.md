@@ -12,7 +12,8 @@ and ~30 lines of JavaScript used only for the mobile navigation drawer.
 | `doctors.html` | Doctors (grouped by department) |
 | `departments.html` | Departments (15 detail blocks) |
 | `services.html` | Medical Services |
-| `diagnostics.html` | Diagnostic Centre |
+| `scans.html` | Scans & Imaging (MRI, CT, X-ray, ultrasound) |
+| `diagnostics.html` | Diagnostic Centre (cardiac tests, laboratory, endoscopy) |
 | `facilities.html` | Facilities |
 | `schedule.html` | Consultation Schedule |
 | `health-checkup.html` | Health Check-up Packages |
@@ -26,7 +27,7 @@ Open `index.html` in a browser — no build step or server is required to view t
 
 ```
 .
-├── *.html                  ← the 12 finished pages (generated — see below)
+├── *.html                  ← the 13 finished pages (generated — see below)
 ├── site.webmanifest
 ├── assets/
 │   ├── css/style.css       ← the entire design system
@@ -44,7 +45,7 @@ Open `index.html` in a browser — no build step or server is required to view t
 
 ### Editing
 
-The header and footer are identical on all 12 pages, so they live in one place.
+The header and footer are identical on all 13 pages, so they live in one place.
 
 - To change the nav, logo, meta tags or footer → edit `_build/header.tpl` / `_build/footer.tpl`
 - To change a page's content → edit `_build/pages/<page>.html` (body content only)
@@ -57,8 +58,8 @@ python3 _build/make.py
 ```
 
 The output is ordinary static HTML with no runtime dependency on the build script. If you
-prefer to abandon the templating and hand-edit the 12 root files directly, you can — just
-delete `_build/` and remember that header/footer changes then have to be made 12 times.
+prefer to abandon the templating and hand-edit the 13 root files directly, you can — just
+delete `_build/` and remember that header/footer changes then have to be made 13 times.
 
 ## Design system (`assets/css/style.css`)
 
@@ -99,10 +100,12 @@ column), 480px (small phones).
    signature, health check-up package prices, and the blank (`—`) cells in the consultation
    table on `schedule.html`. Two General Medicine entries (Dr. Devarajan, Dr. Karthikeyan)
    currently carry a name and nothing else on both `doctors.html` and `schedule.html`.
-2. **Contact form** — the appointment form has been removed from `contact.html`; the page now
-   directs visitors to the reception numbers instead. The hero form on `index.html` still
-   posts to `#` — point its `action` at your mail handler or CRM endpoint and add
-   server-side validation, or remove it too.
+2. **Appointment forms** — the site no longer contains any `<form>`. Both the `contact.html`
+   appointment form and the "Quick Appointment" hero form on `index.html` have been removed;
+   each place now shows the reception and token-booking numbers instead. The forms section of
+   `style.css` (`.form-card`, `.form-grid`, `.field`, `.glass-form`) is kept so a form can be
+   reinstated later — if you do, point its `action` at a mail handler or CRM endpoint and add
+   server-side validation.
 3. **Google Map** — replace the `.map-placeholder` block in `contact.html` with the real
    embed once the full address is confirmed.
 4. **Gallery** — only the exterior photograph is real; the other tiles are placeholders.

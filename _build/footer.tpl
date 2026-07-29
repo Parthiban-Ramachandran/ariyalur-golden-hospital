@@ -36,6 +36,7 @@
         <h4>Services</h4>
         <ul class="footer-list">
           <li><a href="services.html">Medical Services</a></li>
+          <li><a href="scans.html">Scans &amp; Imaging</a></li>
           <li><a href="diagnostics.html">Diagnostic Centre</a></li>
           <li><a href="facilities.html">Facilities</a></li>
           <li><a href="health-checkup.html">Health Check-up</a></li>

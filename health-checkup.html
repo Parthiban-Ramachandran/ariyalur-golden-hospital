@@ -70,15 +70,16 @@
       <a class="nav__link" href="departments.html">Departments</a>
       <a class="nav__link" href="doctors.html">Doctors</a>
       <div class="nav__item">
-        <a class="nav__link" href="services.html" aria-current="page">
+        <a class="nav__link" href="services.html" aria-current="true">
           Services
           <svg class="nav__caret" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg>
         </a>
         <ul class="nav__menu">
           <li><a href="services.html">Medical Services</a></li>
+          <li><a href="scans.html">Scans &amp; Imaging</a></li>
           <li><a href="diagnostics.html">Diagnostic Centre</a></li>
           <li><a href="facilities.html">Hospital Facilities</a></li>
-          <li><a href="health-checkup.html">Health Check-up Packages</a></li>
+          <li><a href="health-checkup.html" aria-current="page">Health Check-up Packages</a></li>
         </ul>
       </div>
       <a class="nav__link" href="schedule.html">Schedule</a>
@@ -212,7 +213,7 @@
           <p>Your consolidated report is prepared with all investigations in one document.</p>
         </article>
         <article class="card">
-          <span class="icon-badge" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg></span>
+          <span class="icon-badge" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="6.4" r="3.7"/><path d="M4.8 21v-1.4a5.8 5.8 0 0 1 5.8-5.8h2.8a5.8 5.8 0 0 1 5.8 5.8V21"/><path d="M12 16.4v3.4M10.3 18.1h3.4"/></svg></span>
           <h4>4 · Doctor review</h4>
           <p>A physician explains the findings, flags anything abnormal and advises on follow-up.</p>
         </article>
@@ -239,11 +240,17 @@
           <a class="link-arrow" href="diagnostics.html" style="margin-left:18px">See our diagnostics</a>
         </div>
       </div>
-      <div class="media media--tall">
-        <div class="media__inner">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 3h6"/><path d="M10 3v6l-5.5 9A2 2 0 0 0 6.2 21h11.6a2 2 0 0 0 1.7-3L14 9V3"/></svg>
-          <span>Laboratory — Image Placeholder</span>
-        </div>
+      <div class="media media--tall media--photo">
+        <picture>
+          <source type="image/webp"
+                  srcset="assets/img/laboratory-640.webp 640w, assets/img/laboratory.webp 1280w"
+                  sizes="(max-width: 900px) 100vw, 46vw">
+          <img src="assets/img/laboratory.jpg"
+               srcset="assets/img/laboratory-640.jpg 640w, assets/img/laboratory.jpg 1280w"
+               sizes="(max-width: 900px) 100vw, 46vw"
+               width="1280" height="853" loading="lazy" decoding="async"
+               alt="Hospital laboratory with analyser benches along the walls, a central island holding a microscope, pipettes and racks of blood collection tubes, and a glass-fronted cold storage refrigerator.">
+        </picture>
       </div>
     </div>
   </section>
@@ -303,6 +310,7 @@
         <h4>Services</h4>
         <ul class="footer-list">
           <li><a href="services.html">Medical Services</a></li>
+          <li><a href="scans.html">Scans &amp; Imaging</a></li>
           <li><a href="diagnostics.html">Diagnostic Centre</a></li>
           <li><a href="facilities.html">Facilities</a></li>
           <li><a href="health-checkup.html">Health Check-up</a></li>

@@ -70,15 +70,16 @@
       <a class="nav__link" href="departments.html" {{ACTIVE_DEPARTMENTS}}>Departments</a>
       <a class="nav__link" href="doctors.html" {{ACTIVE_DOCTORS}}>Doctors</a>
       <div class="nav__item">
-        <a class="nav__link" href="services.html" {{ACTIVE_SERVICES}}>
+        <a class="nav__link" href="services.html" {{SECTION_SERVICES}}>
           Services
           <svg class="nav__caret" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg>
         </a>
         <ul class="nav__menu">
-          <li><a href="services.html">Medical Services</a></li>
-          <li><a href="diagnostics.html">Diagnostic Centre</a></li>
-          <li><a href="facilities.html">Hospital Facilities</a></li>
-          <li><a href="health-checkup.html">Health Check-up Packages</a></li>
+          <li><a href="services.html" {{ACTIVE_SERVICES}}>Medical Services</a></li>
+          <li><a href="scans.html" {{ACTIVE_SCANS}}>Scans &amp; Imaging</a></li>
+          <li><a href="diagnostics.html" {{ACTIVE_DIAGNOSTICS}}>Diagnostic Centre</a></li>
+          <li><a href="facilities.html" {{ACTIVE_FACILITIES}}>Hospital Facilities</a></li>
+          <li><a href="health-checkup.html" {{ACTIVE_HEALTH_CHECKUP}}>Health Check-up Packages</a></li>
         </ul>
       </div>
       <a class="nav__link" href="schedule.html" {{ACTIVE_SCHEDULE}}>Schedule</a>

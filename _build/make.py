@@ -47,14 +47,20 @@ PAGES = {
         "desc": "Emergency and trauma care, ICU, joint replacement, arthroscopy, spine surgery, laparoscopic surgery, kidney stone and prostate surgery, dialysis, oncology, poison treatment and maternity care.",
         "keywords": "medical services Ariyalur, emergency care, trauma care, ICU, joint replacement, arthroscopy, spine surgery, laparoscopic surgery, kidney stone surgery, prostate surgery, dialysis, poison treatment, maternity care",
     },
+    "scans.html": {
+        "active": "SCANS",
+        "title": "Scans & Imaging | MRI 1.5 Tesla, CT Scan, X-Ray — Ariyalur Golden Hospital",
+        "desc": "In-house scans at Ariyalur Golden Hospital — MRI 1.5 Tesla, CT scan, digital X-ray, ultrasound and consultant radiology reporting, with emergency imaging available 24×7.",
+        "keywords": "MRI scan Ariyalur, MRI 1.5 Tesla, CT scan Ariyalur, digital X-ray, ultrasound scan, radiology reporting, scan centre Ariyalur, emergency CT scan",
+    },
     "diagnostics.html": {
-        "active": "SERVICES",
-        "title": "Diagnostic Centre | MRI, CT Scan, Laboratory — Ariyalur Golden Hospital",
-        "desc": "In-house diagnostics at Ariyalur Golden Hospital — MRI 1.5 Tesla, CT scan, digital X-ray, ECG, ECHO, ultrasound-guided radiology, laboratory, endoscopy, colonoscopy, colposcopy, hysteroscopy and laparoscopy.",
-        "keywords": "diagnostic centre Ariyalur, MRI 1.5 Tesla, CT scan, digital X-ray, ECG, ECHO, laboratory, endoscopy, colonoscopy, colposcopy, hysteroscopy, laparoscopy",
+        "active": "DIAGNOSTICS",
+        "title": "Diagnostic Centre | Laboratory, ECG, ECHO, Endoscopy — Ariyalur Golden Hospital",
+        "desc": "In-house diagnostics at Ariyalur Golden Hospital — ECG, ECHO, a full laboratory and a complete endoscopy suite covering endoscopy, colonoscopy, colposcopy, hysteroscopy and laparoscopy. Scans are listed separately.",
+        "keywords": "diagnostic centre Ariyalur, laboratory Ariyalur, ECG, ECHO, blood test, endoscopy, colonoscopy, colposcopy, hysteroscopy, laparoscopy",
     },
     "facilities.html": {
-        "active": "SERVICES",
+        "active": "FACILITIES",
         "title": "Hospital Facilities | Ariyalur Golden Hospital (PVT) Ltd.",
         "desc": "Ambulance, ICU, blood bank, dialysis unit, three operation theatres with C-Arm, MRI, CT scan, pharmacy, laboratory, physiotherapy and a 24-hour emergency ward.",
         "keywords": "hospital facilities Ariyalur, ambulance service, ICU, blood bank, dialysis unit, operation theatre, C-Arm, MRI, CT scan, pharmacy, laboratory, physiotherapy, emergency ward",
@@ -66,7 +72,7 @@ PAGES = {
         "keywords": "doctor visiting schedule Ariyalur, consultation timing, OP timing, specialist visiting days, appointment booking",
     },
     "health-checkup.html": {
-        "active": "SERVICES",
+        "active": "HEALTH_CHECKUP",
         "title": "Health Check-up Packages | Ariyalur Golden Hospital (PVT) Ltd.",
         "desc": "Master health check-up, preventive screening, family and corporate health packages at Ariyalur Golden Hospital.",
         "keywords": "master health checkup Ariyalur, preventive health package, corporate health checkup, family health package, annual health screening",
@@ -92,9 +98,17 @@ PAGES = {
 }
 
 ACTIVE_KEYS = [
-    "INDEX", "ABOUT", "DEPARTMENTS", "DOCTORS", "SERVICES",
+    "INDEX", "ABOUT", "DEPARTMENTS", "DOCTORS", "SERVICES", "SCANS",
+    "DIAGNOSTICS", "FACILITIES", "HEALTH_CHECKUP",
     "SCHEDULE", "INSURANCE", "GALLERY", "CONTACT",
 ]
+
+# Parent nav links that stay highlighted while any page in their dropdown is
+# open. The parent gets aria-current="true" (current item in a set), while the
+# page itself keeps aria-current="page" on its dropdown entry.
+SECTIONS = {
+    "SERVICES": ["SERVICES", "SCANS", "DIAGNOSTICS", "FACILITIES", "HEALTH_CHECKUP"],
+}
 
 
 def build():
@@ -116,6 +130,9 @@ def build():
         for key in ACTIVE_KEYS:
             value = 'aria-current="page"' if key == meta["active"] else ""
             head = head.replace("{{ACTIVE_%s}}" % key, value)
+        for section, members in SECTIONS.items():
+            value = 'aria-current="true"' if meta["active"] in members else ""
+            head = head.replace("{{SECTION_%s}}" % section, value)
 
         # tidy the empty attribute slots left behind
         head = re.sub(r'\s+(?=>)', '', head)
