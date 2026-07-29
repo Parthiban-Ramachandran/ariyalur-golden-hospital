@@ -99,8 +99,10 @@ column), 480px (small phones).
    signature, health check-up package prices, and the blank (`—`) cells in the consultation
    table on `schedule.html`. Two General Medicine entries (Dr. Devarajan, Dr. Karthikeyan)
    currently carry a name and nothing else on both `doctors.html` and `schedule.html`.
-2. **Contact form** — `contact.html` and the hero form on `index.html` post to `#`. Point
-   the `action` at your mail handler or CRM endpoint and add server-side validation.
+2. **Contact form** — the appointment form has been removed from `contact.html`; the page now
+   directs visitors to the reception numbers instead. The hero form on `index.html` still
+   posts to `#` — point its `action` at your mail handler or CRM endpoint and add
+   server-side validation, or remove it too.
 3. **Google Map** — replace the `.map-placeholder` block in `contact.html` with the real
    embed once the full address is confirmed.
 4. **Gallery** — only the exterior photograph is real; the other tiles are placeholders.

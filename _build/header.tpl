@@ -60,7 +60,7 @@
       </span>
       <span>
         <span class="brand__name">Ariyalur Golden Hospital</span>
-        <span class="brand__sub">Multi-Speciality · PVT Ltd</span>
+        <span class="brand__sub">Multi-Speciality</span>
       </span>
     </a>
 
