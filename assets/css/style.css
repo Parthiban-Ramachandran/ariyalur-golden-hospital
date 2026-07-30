@@ -2658,7 +2658,152 @@ body.has-lightbox {
   color: var(--blue-200);
 }
 
-/* ---------------------------- 14. Utilities ----------------------------- */
+/* -------------------------- 14. Legal / long-form ----------------------- */
+.legal-meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px 26px;
+  padding: 16px 22px;
+  border: 1px solid var(--line);
+  border-radius: var(--r-md);
+  background: var(--surface);
+  color: var(--muted);
+  font-size: .88rem;
+}
+
+.legal-meta strong {
+  color: var(--ink);
+}
+
+.legal-toc {
+  padding: 26px 28px;
+  border: 1px solid var(--line);
+  border-radius: var(--r-md);
+  background: var(--white);
+  box-shadow: var(--sh-xs);
+}
+
+.legal-toc h2 {
+  font-size: 1.02rem;
+  font-family: var(--font-sans);
+  font-weight: 800;
+  letter-spacing: .12em;
+  text-transform: uppercase;
+  color: var(--muted);
+  margin-bottom: 14px;
+}
+
+.legal-toc ol {
+  list-style: decimal;
+  padding-left: 20px;
+  columns: 2;
+  column-gap: 34px;
+}
+
+.legal-toc li {
+  margin-bottom: 7px;
+  break-inside: avoid;
+  color: var(--muted);
+}
+
+.legal-toc a {
+  color: var(--blue-600);
+  font-weight: 600;
+}
+
+.legal-toc a:hover {
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+.legal-block {
+  scroll-margin-top: 110px;
+}
+
+.legal-block + .legal-block {
+  margin-top: 50px;
+  padding-top: 44px;
+  border-top: 1px solid var(--line-2);
+}
+
+.legal-block h2 {
+  font-size: clamp(1.35rem, 1.15rem + .7vw, 1.8rem);
+  margin-bottom: 16px;
+}
+
+.legal-block h3 {
+  margin-top: 32px;
+  margin-bottom: 10px;
+}
+
+.legal-block h4 {
+  margin-top: 24px;
+  margin-bottom: 8px;
+}
+
+.legal-block a {
+  color: var(--blue-600);
+  font-weight: 600;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+.legal-block a:hover {
+  color: var(--blue-700);
+}
+
+.legal-block .info-box a,
+.legal-block .card a {
+  text-decoration: none;
+}
+
+.legal-block .info-box a:hover,
+.legal-block .card a:hover {
+  text-decoration: underline;
+}
+
+/* the closing "related pages" / contact boxes sit outside .legal-block */
+.legal-related a {
+  color: var(--blue-600);
+  font-weight: 700;
+}
+
+.legal-related a:hover {
+  color: var(--blue-700);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+/* the type selector is needed to outrank the `ul[class]` reset */
+.legal-list {
+  padding-left: 22px;
+  margin-block: 14px;
+  color: var(--ink-2);
+}
+
+ul.legal-list {
+  list-style: disc;
+}
+
+ol.legal-list {
+  list-style: decimal;
+}
+
+.legal-list li {
+  margin-bottom: 10px;
+}
+
+.legal-list li:last-child {
+  margin-bottom: 0;
+}
+
+.legal-list ul {
+  list-style: circle;
+  padding-left: 22px;
+  margin-top: 8px;
+}
+
+/* ---------------------------- 15. Utilities ----------------------------- */
 .skip-link {
   position: absolute;
   left: 16px;
@@ -2752,7 +2897,7 @@ body.has-lightbox {
   font-weight: 700;
 }
 
-/* --------------------------- 15. Motion --------------------------------- */
+/* --------------------------- 16. Motion --------------------------------- */
 @keyframes rise {
   from {
     opacity: 0;
@@ -2812,7 +2957,7 @@ body.has-lightbox {
   }
 }
 
-/* -------------------------- 16. Responsive ------------------------------ */
+/* -------------------------- 17. Responsive ------------------------------ */
 @media (max-width: 1380px) {
   .site-header__inner {
     gap: 16px;
@@ -3060,6 +3205,19 @@ body.has-lightbox {
   .grid-3,
   .grid-4 {
     grid-template-columns: 1fr;
+  }
+
+  .legal-toc {
+    padding: 22px;
+  }
+
+  .legal-toc ol {
+    columns: 1;
+  }
+
+  .legal-block + .legal-block {
+    margin-top: 38px;
+    padding-top: 32px;
   }
 
   .doctor-row {

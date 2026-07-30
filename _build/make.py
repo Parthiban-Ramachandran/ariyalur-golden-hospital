@@ -32,14 +32,14 @@ PAGES = {
     "doctors.html": {
         "active": "DOCTORS",
         "title": "Our Doctors | Specialist Consultants — Ariyalur Golden Hospital",
-        "desc": "Meet the specialist consultants at Ariyalur Golden Hospital across cardiology, neurosurgery, urology, nephrology, oncology, pulmonology, radiology, general medicine and physiotherapy.",
-        "keywords": "doctors Ariyalur Golden Hospital, cardiologist Ariyalur, neurosurgeon, urologist, nephrologist, oncologist, pulmonologist, physiotherapist, consultant doctors",
+        "desc": "Meet the specialist consultants at Ariyalur Golden Hospital across cardiology, neurosurgery, urology, nephrology, oncology, pulmonology, radiology, paediatrics, obstetrics & gynaecology, general medicine, psychiatry, vascular surgery and physiotherapy.",
+        "keywords": "doctors Ariyalur Golden Hospital, cardiologist Ariyalur, neurosurgeon, urologist, nephrologist, oncologist, pulmonologist, paediatrician, gynaecologist, psychiatrist, vascular surgeon, physiotherapist, consultant doctors",
     },
     "departments.html": {
         "active": "DEPARTMENTS",
         "title": "Departments | Centres of Excellence — Ariyalur Golden Hospital",
-        "desc": "Explore the clinical departments at Ariyalur Golden Hospital — cardiology, neurology, orthopaedics, general surgery, urology, nephrology, oncology, pulmonology and more.",
-        "keywords": "hospital departments Ariyalur, cardiology department, neurology, orthopaedics, general surgery, urology, nephrology, medical oncology, pulmonology, radiology, physiotherapy",
+        "desc": "Explore the seventeen clinical departments at Ariyalur Golden Hospital — cardiology, neurology, orthopaedics, general surgery, urology, nephrology, oncology, pulmonology, paediatrics, obstetrics & gynaecology, psychiatry, vascular surgery and more.",
+        "keywords": "hospital departments Ariyalur, cardiology department, neurology, orthopaedics, general surgery, urology, nephrology, medical oncology, pulmonology, radiology, paediatrics, obstetrics gynaecology, psychiatry, vascular surgery, anaesthesiology, physiotherapy",
     },
     "services.html": {
         "active": "SERVICES",
@@ -94,6 +94,24 @@ PAGES = {
         "title": "Contact Us | Ariyalur Golden Hospital (PVT) Ltd.",
         "desc": "Contact Ariyalur Golden Hospital — reception 04329 222530, emergency 99438 27233, dialysis 84899 26941, token booking 84899 26947. Appointment request form and location.",
         "keywords": "contact Ariyalur Golden Hospital, hospital phone number Ariyalur, emergency number, dialysis contact, appointment booking, hospital address",
+    },
+    "disclaimer.html": {
+        "active": "DISCLAIMER",
+        "title": "Medical & Website Disclaimer | Ariyalur Golden Hospital (PVT) Ltd.",
+        "desc": "Medical and website disclaimer for Ariyalur Golden Hospital — the site is for general information only, does not create a doctor-patient relationship and is not a substitute for professional medical advice.",
+        "keywords": "medical disclaimer, website disclaimer, Ariyalur Golden Hospital, no doctor patient relationship, not medical advice, emergency notice",
+    },
+    "privacy.html": {
+        "active": "PRIVACY",
+        "title": "Privacy Policy | Ariyalur Golden Hospital (PVT) Ltd.",
+        "desc": "How Ariyalur Golden Hospital collects, stores, processes and protects patient personal and health data, in line with the DPDPA 2023 and the IT Act, 2000.",
+        "keywords": "privacy policy, patient data protection, DPDPA 2023, IT Act 2000, health data privacy, cookies policy, grievance officer, Ariyalur Golden Hospital",
+    },
+    "terms.html": {
+        "active": "TERMS",
+        "title": "Terms & Conditions of Use | Ariyalur Golden Hospital (PVT) Ltd.",
+        "desc": "Terms and conditions governing the use of the Ariyalur Golden Hospital website, including intellectual property, online appointment requests, patient responsibilities and limitation of liability.",
+        "keywords": "terms and conditions, terms of use, website terms, appointment request terms, limitation of liability, governing law, Ariyalur Golden Hospital",
     },
 }
 
