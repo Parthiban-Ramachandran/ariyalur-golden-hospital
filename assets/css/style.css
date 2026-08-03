@@ -737,6 +737,173 @@ strong {
   color: var(--blue-700);
 }
 
+/* The drawer-only accordion button. On desktop the caret inside the parent
+   link does the signalling and hover opens the panel, so it stays hidden. */
+.nav__expand {
+  display: none;
+}
+
+/* ---- Mega menu ----------------------------------------------------------
+   The panel is full-bleed: the item drops its own positioning context so the
+   absolute panel resolves against .site-header (sticky = positioned). */
+.nav__item--mega {
+  position: static;
+}
+
+.mega {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  right: 0;
+  padding-block: 28px 32px;
+  /* opaque: the panel sits over page content, and a translucent sheet lets
+     hero headings ghost through it */
+  background: var(--white);
+  border-bottom: 1px solid var(--line);
+  box-shadow: var(--sh-lg);
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(8px);
+  transition: opacity var(--t), transform var(--t), visibility var(--t);
+}
+
+.nav__item--mega:hover .mega,
+.nav__item--mega:focus-within .mega {
+  opacity: 1;
+  visibility: visible;
+  transform: none;
+}
+
+/* matches the slightly wider header container */
+.mega__inner {
+  width: min(100% - 40px, 1340px);
+  margin-inline: auto;
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr)) 290px;
+  gap: 26px;
+  align-items: start;
+}
+
+.mega__title {
+  font-size: .7rem;
+  font-weight: 800;
+  letter-spacing: .14em;
+  text-transform: uppercase;
+  color: var(--muted);
+  padding-left: 12px;
+  margin-bottom: 10px;
+}
+
+.mega__list {
+  display: grid;
+  gap: 2px;
+}
+
+.mega__list a {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  padding: 10px 12px;
+  border-radius: 14px;
+  transition: background var(--t);
+}
+
+.mega__list a:hover {
+  background: var(--blue-050);
+}
+
+.mega__list a[aria-current="page"] {
+  background: var(--blue-100);
+}
+
+.mega__ico {
+  width: 36px;
+  height: 36px;
+  flex: none;
+  display: grid;
+  place-items: center;
+  border-radius: 11px;
+  color: var(--blue-700);
+  background: linear-gradient(140deg, var(--blue-100), var(--navy-050));
+  border: 1px solid var(--blue-200);
+}
+
+.mega__ico svg {
+  width: 19px;
+  height: 19px;
+}
+
+.mega__label {
+  display: block;
+  font-size: .92rem;
+  font-weight: 700;
+  color: var(--ink);
+  line-height: 1.35;
+}
+
+.mega__list a:hover .mega__label,
+.mega__list a[aria-current="page"] .mega__label {
+  color: var(--blue-700);
+}
+
+.mega__desc {
+  display: block;
+  font-size: .78rem;
+  color: var(--muted);
+  line-height: 1.45;
+  margin-top: 2px;
+}
+
+.mega__more {
+  margin: 12px 0 0 12px;
+  font-size: .86rem;
+}
+
+.mega__panel {
+  display: grid;
+  gap: 8px;
+  padding: 24px 22px;
+  border-radius: var(--r-md);
+  background: linear-gradient(150deg, var(--blue-700), var(--navy-900));
+  color: #fff;
+}
+
+.mega__panel-eyebrow {
+  font-size: .68rem;
+  font-weight: 800;
+  letter-spacing: .16em;
+  text-transform: uppercase;
+  color: var(--green-400);
+}
+
+.mega__panel-title {
+  font-family: var(--font-display);
+  font-size: 1.06rem;
+  font-weight: 800;
+  letter-spacing: -.01em;
+}
+
+.mega__panel-text {
+  font-size: .82rem;
+  line-height: 1.5;
+  color: var(--blue-200);
+}
+
+.mega__panel-num {
+  font-size: 1.24rem;
+  font-weight: 800;
+  letter-spacing: -.01em;
+  margin-top: 2px;
+}
+
+.mega__panel-num:hover {
+  color: var(--green-400);
+}
+
+.mega__panel .btn {
+  margin-top: 8px;
+}
+
 .header__cta {
   display: inline-flex;
   align-items: center;
@@ -1223,6 +1390,12 @@ strong {
   color: var(--green-800);
 }
 
+/* Department leads the row when the label sits above the name */
+.doctor-row__id>.doctor-row__spec:first-child {
+  margin-top: 0;
+  margin-bottom: 4px;
+}
+
 .doctor-row__meta {
   display: grid;
   gap: 6px;
@@ -1260,6 +1433,37 @@ strong {
 
 .service-card ul {
   margin-top: 16px;
+}
+
+/* Main service — the three specialities the hospital leads with */
+.service-card--main {
+  border-color: var(--blue-200);
+  box-shadow: var(--sh-md);
+  padding-top: 34px;
+}
+
+.service-card--main::before {
+  content: "";
+  position: absolute;
+  inset: 0 0 auto;
+  height: 4px;
+  border-radius: var(--r-lg) var(--r-lg) 0 0;
+  background: linear-gradient(90deg, var(--blue-600), var(--green-500));
+}
+
+.service-card__flag {
+  align-self: flex-start;
+  margin-bottom: 18px;
+}
+
+.service-card--main .icon-badge {
+  margin-bottom: 16px;
+}
+
+/* keeps the department link flush at the foot of all three cards */
+.service-card--main > div:last-child {
+  margin-top: auto;
+  padding-top: 18px;
 }
 
 /* Facility card */
@@ -2007,6 +2211,181 @@ body.has-lightbox {
   content: "·";
   color: var(--green-600);
   font-weight: 800;
+}
+
+/* Case study card (case-studies page) — a case is a journey, so the three
+   stages read as a connected timeline rather than three loose columns: the
+   numbered markers sit on a dashed rule that runs across the card on desktop
+   and turns vertical below 780px. Kept visually distinct from .dept-detail so
+   a case does not look like a department. */
+.case-list {
+  display: grid;
+  gap: 30px;
+}
+
+.case-card {
+  position: relative;
+  overflow: hidden;
+  padding: 32px 34px 26px;
+  border-radius: var(--r-lg);
+  background: var(--white);
+  border: 1px solid var(--line);
+  box-shadow: var(--sh-sm);
+  scroll-margin-top: 110px;
+  transition: box-shadow var(--t), border-color var(--t);
+}
+
+/* brand hairline down the leading edge */
+.case-card::before {
+  content: "";
+  position: absolute;
+  inset: 0 auto 0 0;
+  width: 4px;
+  background: linear-gradient(180deg, var(--blue-600), var(--green-500));
+}
+
+.case-card:hover {
+  box-shadow: var(--sh-md);
+  border-color: var(--blue-200);
+}
+
+.case-card__head {
+  display: flex;
+  align-items: flex-start;
+  gap: 18px;
+}
+
+.case-card__head .icon-badge {
+  margin-bottom: 0;
+}
+
+.case-card:hover .icon-badge {
+  transform: rotate(-6deg) scale(1.05);
+  background: linear-gradient(140deg, var(--blue-600), var(--green-600));
+  color: #fff;
+}
+
+.case-card__speciality {
+  display: block;
+  margin-bottom: 6px;
+  font-size: .74rem;
+  letter-spacing: .12em;
+  text-transform: uppercase;
+  font-weight: 800;
+  color: var(--blue-600);
+}
+
+.case-card__head h3 {
+  margin: 0;
+  font-size: 1.24rem;
+}
+
+.case-card__num {
+  margin-left: auto;
+  flex: none;
+  font-family: var(--font-display);
+  font-size: 2.7rem;
+  font-weight: 800;
+  line-height: .9;
+  letter-spacing: -.04em;
+  color: var(--blue-100);
+}
+
+.case-card__summary {
+  margin-top: 18px;
+  max-width: 82ch;
+  font-size: .96rem;
+  color: var(--muted);
+}
+
+.case-steps {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 28px;
+  margin-top: 26px;
+  padding-top: 30px;
+  border-top: 1px solid var(--line-2);
+}
+
+.case-step {
+  position: relative;
+}
+
+/* dashed connector running to the following step */
+.case-step::before {
+  content: "";
+  position: absolute;
+  top: 15px;
+  left: 42px;
+  right: -28px;
+  height: 2px;
+  background: repeating-linear-gradient(90deg, var(--blue-200) 0 6px, transparent 6px 12px);
+}
+
+.case-step:last-child::before {
+  content: none;
+}
+
+.case-step__num {
+  position: relative;
+  z-index: 1;
+  display: grid;
+  place-items: center;
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  font-size: .85rem;
+  font-weight: 800;
+  color: var(--blue-700);
+  background: var(--blue-100);
+  border: 1px solid var(--blue-200);
+}
+
+.case-step__title {
+  margin: 14px 0 12px;
+  font-size: .78rem;
+  letter-spacing: .1em;
+  text-transform: uppercase;
+  font-weight: 800;
+  color: var(--ink);
+}
+
+.case-step__list {
+  display: grid;
+  gap: 9px;
+  font-size: .92rem;
+  color: var(--ink-2);
+}
+
+.case-step__list li {
+  display: flex;
+  gap: 10px;
+  align-items: flex-start;
+}
+
+.case-step__list li::before {
+  content: "";
+  flex: none;
+  margin-top: .48em;
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  background: var(--green-500);
+}
+
+.case-card__foot {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 14px;
+  margin-top: 26px;
+  padding-top: 20px;
+  border-top: 1px dashed var(--line);
+}
+
+.case-card__foot .tag-row {
+  margin: 0;
 }
 
 /* Group heading (doctors page) */
@@ -3128,7 +3507,58 @@ ol.legal-list {
     justify-content: space-between;
   }
 
-  .nav__menu {
+  /* Drawer: the parent row keeps its own link and gains a separate button
+     that opens the group, so tapping "Services" still reaches the page. */
+  .nav__item,
+  .nav__item--mega {
+    position: relative;
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) auto;
+    align-items: center;
+    row-gap: 2px;
+  }
+
+  .nav__item>.nav__link {
+    grid-column: 1;
+  }
+
+  .nav__link .nav__caret {
+    display: none;
+  }
+
+  .nav__expand {
+    grid-column: 2;
+    display: inline-grid;
+    place-items: center;
+    width: 38px;
+    height: 38px;
+    flex: none;
+    border: 1px solid var(--line);
+    border-radius: 50%;
+    background: var(--white);
+    color: var(--ink-2);
+  }
+
+  .nav__expand .nav__caret {
+    width: 15px;
+    height: 15px;
+    color: inherit;
+  }
+
+  .nav__item[data-open="true"]>.nav__expand {
+    background: var(--blue-050);
+    border-color: var(--blue-200);
+    color: var(--blue-700);
+  }
+
+  .nav__item[data-open="true"]>.nav__expand .nav__caret {
+    transform: rotate(180deg);
+  }
+
+  .nav__menu,
+  .mega {
+    grid-column: 1 / -1;
+    display: none;
     position: static;
     opacity: 1;
     visibility: visible;
@@ -3140,11 +3570,45 @@ ol.legal-list {
     margin: 2px 0 8px 16px;
     padding: 0 0 0 6px;
     background: transparent;
+    backdrop-filter: none;
+    -webkit-backdrop-filter: none;
     min-width: 0;
   }
 
-  /* The drawer submenu is always expanded, so the caret stays a static
-     "this row has children" marker — no rotate-on-hover here. */
+  .nav__item[data-open="true"]>.nav__menu,
+  .nav__item[data-open="true"]>.mega {
+    display: block;
+  }
+
+  .mega__inner {
+    width: 100%;
+    display: block;
+  }
+
+  .mega__col+.mega__col {
+    margin-top: 14px;
+  }
+
+  .mega__title {
+    padding-left: 12px;
+    margin-bottom: 6px;
+  }
+
+  .mega__desc,
+  .mega__ico,
+  .mega__panel {
+    display: none;
+  }
+
+  .mega__list a {
+    padding: 9px 12px;
+  }
+
+  .mega__more {
+    margin-left: 12px;
+  }
+
+  /* The caret only marks "this row has children" here — no rotate-on-hover. */
   .nav__caret {
     width: 14px;
     height: 14px;
@@ -3305,6 +3769,40 @@ ol.legal-list {
     padding: 24px 22px;
   }
 
+  /* stack the case timeline and turn the connector vertical */
+  .case-card {
+    padding: 26px 24px 22px;
+  }
+
+  .case-steps {
+    grid-template-columns: 1fr;
+    gap: 26px;
+  }
+
+  .case-step {
+    padding-left: 46px;
+  }
+
+  .case-step__num {
+    position: absolute;
+    top: 0;
+    left: 0;
+  }
+
+  .case-step__title {
+    margin-top: 5px;
+  }
+
+  .case-step::before {
+    top: 40px;
+    bottom: -26px;
+    left: 15px;
+    right: auto;
+    width: 2px;
+    height: auto;
+    background: repeating-linear-gradient(180deg, var(--blue-200) 0 6px, transparent 6px 12px);
+  }
+
   .group-head {
     flex-wrap: wrap;
   }
@@ -3399,6 +3897,19 @@ ol.legal-list {
 }
 
 @media (max-width: 480px) {
+  /* the ghost numeral is decoration — drop it before it squeezes the title */
+  .case-card__num {
+    display: none;
+  }
+
+  .case-card__head {
+    gap: 14px;
+  }
+
+  .case-card__head h3 {
+    font-size: 1.1rem;
+  }
+
   .brand {
     gap: 10px;
   }

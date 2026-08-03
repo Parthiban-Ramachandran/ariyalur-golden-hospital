@@ -24,9 +24,9 @@
         <h4>Quick Links</h4>
         <ul class="footer-list">
           <li><a href="about.html">About Us</a></li>
+          <li><a href="case-studies.html">Case Studies</a></li>
           <li><a href="departments.html">Departments</a></li>
           <li><a href="doctors.html">Our Doctors</a></li>
-          <li><a href="schedule.html">Consultation Schedule</a></li>
           <li><a href="gallery.html">Gallery</a></li>
           <li><a href="contact.html">Contact Us</a></li>
         </ul>

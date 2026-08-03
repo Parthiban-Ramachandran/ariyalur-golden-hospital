@@ -16,11 +16,14 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parent.parent
 BUILD = ROOT / "_build"
 
+DEFAULT_AUTHOR = "Ariyalur Golden Hospital (PVT) Ltd."
+
 PAGES = {
     "index.html": {
         "active": "INDEX",
-        "title": "Ariyalur Golden Hospital (PVT) Ltd. | Multi-Speciality Hospital in Ariyalur",
-        "desc": "Ariyalur Golden Hospital (PVT) Ltd. — multi-speciality hospital with 24×7 emergency care, ICU, blood bank, dialysis, MRI 1.5 Tesla, CT scan, modern operation theatres and expert consultants. Call 04329 222530.",
+        "author": "Ariyalur Golden Hospital",
+        "title": "Ariyalur Golden Hospital | Multi-Speciality Hospital in Ariyalur",
+        "desc": "Ariyalur Golden Hospital — multi-speciality hospital with 24×7 emergency care, ICU, blood bank, dialysis, MRI 1.5 Tesla, CT scan, modern operation theatres and expert consultants. Call 04329 222530.",
         "keywords": "multi speciality hospital Ariyalur, 24x7 emergency hospital, cardiology, neurosurgery, urology, dialysis centre, medical oncology, MRI 1.5 Tesla, CT scan, blood bank, ICU, maternity hospital, cashless hospital",
     },
     "about.html": {
@@ -28,6 +31,12 @@ PAGES = {
         "title": "About Us | Ariyalur Golden Hospital (PVT) Ltd.",
         "desc": "Learn about Ariyalur Golden Hospital — our mission, vision, core values and the multi-speciality services we provide to Ariyalur and the surrounding districts.",
         "keywords": "about Ariyalur Golden Hospital, hospital mission vision, multi speciality hospital Ariyalur, hospital history, why choose us",
+    },
+    "case-studies.html": {
+        "active": "CASE_STUDIES",
+        "title": "Case Studies | Treatment Pathways — Ariyalur Golden Hospital",
+        "desc": "Illustrative case studies showing how emergency care, imaging, theatre, intensive care and rehabilitation work together at Ariyalur Golden Hospital — trauma, joint replacement, kidney stone, dialysis, emergency caesarean and poisoning.",
+        "keywords": "hospital case studies Ariyalur, trauma care case study, joint replacement, kidney stone surgery, dialysis, emergency caesarean, poisoning treatment, treatment pathway, patient care journey",
     },
     "doctors.html": {
         "active": "DOCTORS",
@@ -44,8 +53,8 @@ PAGES = {
     "services.html": {
         "active": "SERVICES",
         "title": "Medical Services | Ariyalur Golden Hospital (PVT) Ltd.",
-        "desc": "Emergency and trauma care, ICU, joint replacement, arthroscopy, spine surgery, laparoscopic surgery, kidney stone and prostate surgery, dialysis, oncology, poison treatment and maternity care.",
-        "keywords": "medical services Ariyalur, emergency care, trauma care, ICU, joint replacement, arthroscopy, spine surgery, laparoscopic surgery, kidney stone surgery, prostate surgery, dialysis, poison treatment, maternity care",
+        "desc": "Main services — orthopaedics, general surgery and laser surgery — alongside emergency and trauma care, ICU, joint replacement, arthroscopy, spine surgery, laparoscopic surgery, kidney stone and prostate surgery, dialysis, oncology, poison treatment and maternity care.",
+        "keywords": "medical services Ariyalur, orthopaedics Ariyalur, general surgery, laser surgery Ariyalur, piles laser treatment, varicose veins, emergency care, trauma care, ICU, joint replacement, arthroscopy, spine surgery, laparoscopic surgery, kidney stone surgery, prostate surgery, dialysis, poison treatment, maternity care",
     },
     "scans.html": {
         "active": "SCANS",
@@ -64,12 +73,6 @@ PAGES = {
         "title": "Hospital Facilities | Ariyalur Golden Hospital (PVT) Ltd.",
         "desc": "Ambulance, ICU, blood bank, dialysis unit, three operation theatres with C-Arm, MRI, CT scan, pharmacy, laboratory, physiotherapy and a 24-hour emergency ward.",
         "keywords": "hospital facilities Ariyalur, ambulance service, ICU, blood bank, dialysis unit, operation theatre, C-Arm, MRI, CT scan, pharmacy, laboratory, physiotherapy, emergency ward",
-    },
-    "schedule.html": {
-        "active": "SCHEDULE",
-        "title": "Consultation Schedule | Doctor Visiting Days — Ariyalur Golden Hospital",
-        "desc": "Consultant visiting days and consultation timings at Ariyalur Golden Hospital, listed department-wise with appointment type.",
-        "keywords": "doctor visiting schedule Ariyalur, consultation timing, OP timing, specialist visiting days, appointment booking",
     },
     "health-checkup.html": {
         "active": "HEALTH_CHECKUP",
@@ -92,7 +95,7 @@ PAGES = {
     "contact.html": {
         "active": "CONTACT",
         "title": "Contact Us | Ariyalur Golden Hospital (PVT) Ltd.",
-        "desc": "Contact Ariyalur Golden Hospital — reception 04329 222530, emergency 99438 27233, dialysis 84899 26941, token booking 84899 26947. Appointment request form and location.",
+        "desc": "Contact Ariyalur Golden Hospital — reception 04329 222530, emergency 99438 27233, dialysis 84899 26941, token booking 94875 76493. Appointment request form and location.",
         "keywords": "contact Ariyalur Golden Hospital, hospital phone number Ariyalur, emergency number, dialysis contact, appointment booking, hospital address",
     },
     "disclaimer.html": {
@@ -116,15 +119,16 @@ PAGES = {
 }
 
 ACTIVE_KEYS = [
-    "INDEX", "ABOUT", "DEPARTMENTS", "DOCTORS", "SERVICES", "SCANS",
-    "DIAGNOSTICS", "FACILITIES", "HEALTH_CHECKUP",
-    "SCHEDULE", "INSURANCE", "GALLERY", "CONTACT",
+    "INDEX", "ABOUT", "CASE_STUDIES", "DEPARTMENTS", "DOCTORS", "SERVICES",
+    "SCANS", "DIAGNOSTICS", "FACILITIES", "HEALTH_CHECKUP",
+    "INSURANCE", "GALLERY", "CONTACT",
 ]
 
 # Parent nav links that stay highlighted while any page in their dropdown is
 # open. The parent gets aria-current="true" (current item in a set), while the
 # page itself keeps aria-current="page" on its dropdown entry.
 SECTIONS = {
+    "ABOUT": ["ABOUT", "CASE_STUDIES", "GALLERY"],
     "SERVICES": ["SERVICES", "SCANS", "DIAGNOSTICS", "FACILITIES", "HEALTH_CHECKUP"],
 }
 
@@ -144,6 +148,8 @@ def build():
         head = head.replace("{{TITLE}}", meta["title"])
         head = head.replace("{{DESC}}", meta["desc"])
         head = head.replace("{{KEYWORDS}}", meta["keywords"])
+        # "author" is optional — pages that omit it get the registered name
+        head = head.replace("{{AUTHOR}}", meta.get("author", DEFAULT_AUTHOR))
         head = head.replace("{{SLUG}}", slug)
         for key in ACTIVE_KEYS:
             value = 'aria-current="page"' if key == meta["active"] else ""

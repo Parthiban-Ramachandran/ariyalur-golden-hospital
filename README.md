@@ -9,13 +9,13 @@ and ~30 lines of JavaScript used only for the mobile navigation drawer.
 | --- | --- |
 | `index.html` | Home |
 | `about.html` | About Us |
+| `case-studies.html` | Case Studies (illustrative treatment pathways) |
 | `doctors.html` | Doctors (grouped by department) |
 | `departments.html` | Departments (15 detail blocks) |
 | `services.html` | Medical Services |
 | `scans.html` | Scans & Imaging (MRI, CT, X-ray, ultrasound) |
 | `diagnostics.html` | Diagnostic Centre (cardiac tests, laboratory, endoscopy) |
 | `facilities.html` | Facilities |
-| `schedule.html` | Consultation Schedule |
 | `health-checkup.html` | Health Check-up Packages |
 | `insurance.html` | Insurance & Cashless Treatment |
 | `gallery.html` | Gallery |
@@ -65,8 +65,8 @@ python3 _build/make.py
 ```
 
 The output is ordinary static HTML with no runtime dependency on the build script. If you
-prefer to abandon the templating and hand-edit the 16 root files directly, you can — just
-delete `_build/` and remember that header/footer changes then have to be made 16 times.
+prefer to abandon the templating and hand-edit the 17 root files directly, you can — just
+delete `_build/` and remember that header/footer changes then have to be made 17 times.
 
 ## Design system (`assets/css/style.css`)
 
@@ -83,6 +83,7 @@ Colours are derived from the hospital logo and exposed as custom properties:
 
 Reusable components: `.btn`, `.card`, `.doctor-list` / `.doctor-row`, `.dept-card`, `.dept-detail`,
 `.facility-card`, `.insurance-card`, `.testimonial`, `.package`, `.cta-banner`,
+`.case-list` / `.case-card` / `.case-steps` (the case-study timeline),
 `.emergency-banner`, `.info-box`, `.notice-strip`, `.schedule-table`, `.form-card`,
 `.media`, `.gallery-item`, `.legal-meta` / `.legal-toc` / `.legal-block` / `.legal-list`.
 
@@ -104,11 +105,10 @@ column), 480px (small phones).
    The underlying details are still missing and should be filled in when the hospital
    confirms them: years of experience for most consultants, the email address, accreditation
    status, the founding and expansion years on `about.html`, the Chairman's message and
-   signature, health check-up package prices, and the two remaining blank (`—`) cells in the
-   consultation table on `schedule.html` — Dr. Santhip's consultation time and the dialysis
-   slot timing. The full consultant roster (names, qualifications, visiting days and timings)
-   was supplied by the hospital and is reflected on `doctors.html`, `schedule.html` and
-   `departments.html` — the three pages are the only places doctor data lives, so they must be
+   signature, health check-up package prices, and Dr. Santhip's consultation time and the
+   dialysis slot timing. The full consultant roster (names, qualifications, visiting days and
+   timings) was supplied by the hospital and is reflected on `doctors.html` and
+   `departments.html` — the two pages are the only places doctor data lives, so they must be
    kept in step whenever a consultant changes.
 2. **Appointment forms** — the site no longer contains any `<form>`. Both the `contact.html`
    appointment form and the "Quick Appointment" hero form on `index.html` have been removed;
@@ -123,14 +123,20 @@ column), 480px (small phones).
 5. **Social links** — the footer icons point at `#`.
 6. **Testimonials** — the three on the home page are clearly labelled samples; replace them
    with real feedback published with patient consent.
-7. **Absolute URLs** — set `og:image` and the canonical links to the live domain. The legal
+7. **Case studies** — the six cases on `case-studies.html` are illustrative treatment
+   pathways, not accounts of identifiable patients, and the page says so twice (a
+   `.notice-strip` under the intro and an `.info-box` before the CTA). If the hospital wants
+   to publish real cases, replace the text but keep both notices honest: written patient
+   consent is required, no identifying detail may be used, and nothing should be phrased as a
+   guarantee of outcome.
+8. **Absolute URLs** — set `og:image` and the canonical links to the live domain. The legal
    pages also quote the current Vercel URL in their text (`disclaimer.html` §1,
    `terms.html` §1) — update both when the hospital's own domain goes live.
-8. **Legal contact email** — `privacy.html` and `terms.html` use the placeholder
+9. **Legal contact email** — `privacy.html` and `terms.html` use the placeholder
    `privacy@ariyalurgoldenhospital.com` for the Grievance Officer. Replace it with the
    hospital's primary monitored mailbox (it is the only email address on the site) before
    publishing, since the Privacy Policy commits to answering requests sent there.
-9. **Legal review** — the disclaimer, privacy policy and terms were drafted from the
+10. **Legal review** — the disclaimer, privacy policy and terms were drafted from the
    hospital's supplied text against the DPDPA 2023 and IT Act, 2000. Have them checked by
    the hospital's legal advisor before going live, and keep the "Effective / Last updated —
    July 2026" lines on `privacy.html` and `terms.html` current when the text changes.
