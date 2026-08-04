@@ -55,6 +55,11 @@ a {
   text-decoration: none;
 }
 
+/* phone numbers stay on one line — never split across the grouping space */
+a[href^="tel:"] {
+  white-space: nowrap;
+}
+
 button,
 input,
 select,
@@ -319,6 +324,11 @@ strong {
 
 .grid-auto-sm {
   grid-template-columns: repeat(auto-fit, minmax(210px, 1fr));
+}
+
+/* Keeps card width consistent with fuller rows when only 1–2 cards are present */
+.grid-auto-sm--fill {
+  grid-template-columns: repeat(auto-fill, minmax(210px, 1fr));
 }
 
 .grid-auto-lg {
@@ -1081,29 +1091,6 @@ strong {
 .page-hero p {
   color: rgba(255, 255, 255, .8);
   font-size: 1.04rem;
-}
-
-.breadcrumb {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 8px;
-  align-items: center;
-  font-size: .84rem;
-  color: rgba(255, 255, 255, .68);
-  margin-bottom: 18px;
-}
-
-.breadcrumb a:hover {
-  color: #fff;
-}
-
-.breadcrumb span[aria-hidden="true"] {
-  opacity: .55;
-}
-
-.breadcrumb [aria-current="page"] {
-  color: var(--blue-200);
-  font-weight: 600;
 }
 
 /* ---------------------------- 8. Sections ------------------------------- */
@@ -2121,6 +2108,12 @@ body.has-lightbox {
 }
 
 /* Department detail block */
+/* ---------- Department detail card ---------------------------------
+   Column widths follow content weight rather than splitting evenly:
+   Treatments and the doctor schedule carry multi-line entries, while
+   Facilities is only a tag row. Each column sits in a soft panel so the
+   ragged list lengths still read as one tidy row, and the grid steps
+   3 → 2 → 1 so the middle widths never cramp. */
 .dept-detail {
   padding: 0;
   overflow: hidden;
@@ -2130,9 +2123,9 @@ body.has-lightbox {
   position: relative;
   display: flex;
   align-items: center;
-  gap: 16px;
+  gap: 18px;
   min-height: 96px;
-  padding: 18px 30px;
+  padding: 20px 30px;
   color: #fff;
   background: linear-gradient(120deg, var(--blue-700) 0%, var(--blue-600) 62%, var(--green-700) 100%);
   overflow: hidden;
@@ -2151,26 +2144,35 @@ body.has-lightbox {
   z-index: 1;
 }
 
-.dept-detail__banner svg {
-  width: 34px;
-  height: 34px;
+/* the icon carries its own glass chip — no extra markup needed */
+.dept-detail__banner>svg {
+  box-sizing: border-box;
+  width: 52px;
+  height: 52px;
   flex: none;
+  padding: 12px;
+  border-radius: var(--r-md);
+  background: rgba(255, 255, 255, .16);
+  border: 1px solid rgba(255, 255, 255, .24);
 }
 
 .dept-detail__banner h3 {
   color: #fff;
   margin: 0;
+  font-size: 1.22rem;
+  line-height: 1.25;
 }
 
 .dept-detail__banner span {
   display: block;
+  margin-top: 3px;
   font-size: .82rem;
-  color: rgba(255, 255, 255, .78);
+  color: rgba(255, 255, 255, .8);
   font-weight: 600;
 }
 
 .dept-detail__body {
-  padding: 30px;
+  padding: 28px 30px 30px;
 }
 
 .dept-detail__body>p {
@@ -2188,29 +2190,67 @@ body.has-lightbox {
 
 .detail-grid {
   display: grid;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
-  gap: 30px;
-  margin-top: 26px;
-  padding-top: 26px;
+  grid-template-columns: minmax(0, 1.05fr) minmax(0, 1.3fr) minmax(0, .85fr);
+  gap: 18px;
+  /* panels hug their content — the doctor column is far taller than the
+     tag row, and stretching left a large empty box beside it */
+  align-items: start;
+  margin-top: 24px;
+  padding-top: 24px;
   border-top: 1px dashed var(--line);
+}
+
+/* cards with only two columns (no doctor list) split evenly instead of
+   leaving the third track hanging empty */
+.detail-grid:not(:has(> :nth-child(3))) {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+.detail-grid>div {
+  padding: 18px 20px;
+  border: 1px solid var(--line-2);
+  border-radius: var(--r-md);
+  background: var(--surface);
 }
 
 .detail-grid ul {
   display: grid;
-  gap: 9px;
-  font-size: .92rem;
+  gap: 10px;
+  font-size: .9rem;
+  /* the li is block-level now, so the native marker would show up
+     alongside the styled ::before dot */
+  list-style: none;
 }
 
+/* the marker is positioned rather than laid out, so a nested .doc-when
+   line stays inside the same text column instead of becoming a sibling
+   flex/grid item */
 .detail-grid ul li {
-  display: flex;
-  gap: 9px;
-  align-items: flex-start;
+  position: relative;
+  padding-left: 20px;
+  line-height: 1.5;
 }
 
 .detail-grid ul li::before {
-  content: "·";
-  color: var(--green-600);
-  font-weight: 800;
+  content: "";
+  position: absolute;
+  left: 1px;
+  top: .5em;
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: var(--green-500);
+  box-shadow: 0 0 0 3px var(--green-100);
+}
+
+/* visiting day + consultation window, pulled from the doctors page */
+.doc-when {
+  display: block;
+  margin-top: 5px;
+  font-size: .8rem;
+  font-weight: 700;
+  line-height: 1.4;
+  color: var(--blue-700);
 }
 
 /* Case study card (case-studies page) — a case is a journey, so the three
@@ -3395,6 +3435,16 @@ ol.legal-list {
   .footer-grid> :nth-child(3) {
     grid-column: auto;
   }
+
+  /* three columns get cramped here — drop to two and let the short
+     Facilities panel run the full width underneath */
+  .detail-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .detail-grid> :nth-child(3) {
+    grid-column: 1 / -1;
+  }
 }
 
 @media (max-width: 1199px) {
@@ -3760,13 +3810,30 @@ ol.legal-list {
     justify-content: center;
   }
 
-  .detail-grid {
+  .detail-grid,
+  .detail-grid:not(:has(> :nth-child(3))) {
     grid-template-columns: 1fr;
-    gap: 24px;
+    gap: 14px;
   }
 
   .dept-detail__body {
-    padding: 24px 22px;
+    padding: 22px 20px 24px;
+  }
+
+  .dept-detail__banner {
+    min-height: 0;
+    padding: 18px 20px;
+    gap: 14px;
+  }
+
+  .dept-detail__banner>svg {
+    width: 44px;
+    height: 44px;
+    padding: 10px;
+  }
+
+  .dept-detail__banner h3 {
+    font-size: 1.08rem;
   }
 
   /* stack the case timeline and turn the connector vertical */
@@ -3900,6 +3967,27 @@ ol.legal-list {
   /* the ghost numeral is decoration — drop it before it squeezes the title */
   .case-card__num {
     display: none;
+  }
+
+  /* the banner icon is decorative once the title has to wrap */
+  .dept-detail__banner {
+    padding: 16px;
+    gap: 12px;
+  }
+
+  .dept-detail__banner>svg {
+    width: 38px;
+    height: 38px;
+    padding: 8px;
+    border-radius: var(--r-sm);
+  }
+
+  .dept-detail__body {
+    padding: 18px 16px 20px;
+  }
+
+  .detail-grid>div {
+    padding: 16px;
   }
 
   .case-card__head {

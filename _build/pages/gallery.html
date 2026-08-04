@@ -1,17 +1,22 @@
   <!-- ========================== PAGE HERO ========================== -->
   <section class="page-hero">
     <div class="container page-hero__inner">
-      <nav class="breadcrumb" aria-label="Breadcrumb">
-        <a href="index.html">Home</a><span aria-hidden="true">/</span><span aria-current="page">Gallery</span>
-      </nav>
       <span class="eyebrow eyebrow--light">Inside the Hospital</span>
       <h1>Gallery</h1>
-      <p>A look at our building, wards, theatres and equipment. Select any photograph to open it full size and move through the gallery.</p>
+      <p>Explore photographs of the hospital exterior and selected patient-care, diagnostic and support areas. Select a photograph to view a larger version.</p>
     </div>
   </section>
 
   <section class="section">
     <div class="container">
+
+      <div class="notice-strip mb-4">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><line x1="12" y1="16" x2="12" y2="12"/><line x1="12" y1="8" x2="12.01" y2="8"/></svg>
+        <span><strong>About these images:</strong> the exterior photograph was taken at Ariyalur Golden Hospital. The interior images are illustrative representations of hospital facilities — not documentary photographs of active patient care — and will be replaced with approved photographs of the hospital. No patient information is shown.</span>
+      </div>
+
+      <!-- ------------------- HOSPITAL EXTERIOR ------------------- -->
+      <h2 class="mb-3">Hospital exterior and reception</h2>
       <div class="gallery-grid" data-gallery>
         <figure class="gallery-item gallery-item--tall gallery-item--photo">
           <picture>
@@ -22,9 +27,9 @@
                  srcset="assets/img/hospital-building-640.jpg 640w, assets/img/hospital-building.jpg 1023w"
                  sizes="(max-width: 780px) 100vw, 320px"
                  width="1023" height="1537" loading="lazy" decoding="async"
-                 alt="Street view of the Ariyalur Golden Hospital building, with the hospital name in English and Tamil on the facade and the gold-framed entrance to Golden Scans.">
+                 alt="Main entrance of Ariyalur Golden Hospital, with the hospital name in English and Tamil on the facade.">
           </picture>
-          <figcaption>Hospital Building — exterior view</figcaption>
+          <figcaption>Hospital exterior</figcaption>
         </figure>
 
         <figure class="gallery-item gallery-item--photo">
@@ -36,9 +41,27 @@
                  srcset="assets/img/reception-640.jpg 640w, assets/img/reception.jpg 1280w"
                  sizes="(max-width: 780px) 100vw, 400px"
                  width="1280" height="853" loading="lazy" decoding="async"
-                 alt="Hospital reception with a curved wooden and stone front desk, the Ariyalur Golden Hospital logo lit on the wall behind it and a blue department directory board listing cardiology, orthopedics, general medicine and other specialities.">
+                 alt="Reception and front desk at Ariyalur Golden Hospital.">
           </picture>
-          <figcaption>Reception &amp; front desk</figcaption>
+          <figcaption>Reception and front desk — illustrative image</figcaption>
+        </figure>
+      </div>
+
+      <!-- ------------------- PATIENT-CARE AREAS ------------------ -->
+      <h2 class="mt-4 mb-3">Patient-care areas</h2>
+      <div class="gallery-grid" data-gallery>
+        <figure class="gallery-item gallery-item--photo">
+          <picture>
+            <source type="image/webp"
+                    srcset="assets/img/emergency-ward-640.webp 640w, assets/img/emergency-ward.webp 1280w"
+                    sizes="(max-width: 780px) 100vw, 400px">
+            <img src="assets/img/emergency-ward.jpg"
+                 srcset="assets/img/emergency-ward-640.jpg 640w, assets/img/emergency-ward.jpg 1280w"
+                 sizes="(max-width: 780px) 100vw, 400px"
+                 width="1280" height="853" loading="lazy" decoding="async"
+                 alt="Emergency and casualty care area at Ariyalur Golden Hospital.">
+          </picture>
+          <figcaption>Emergency Department — illustrative image</figcaption>
         </figure>
 
         <figure class="gallery-item gallery-item--photo">
@@ -50,9 +73,9 @@
                  srcset="assets/img/icu-640.jpg 640w, assets/img/icu.jpg 1280w"
                  sizes="(max-width: 780px) 100vw, 400px"
                  width="1280" height="853" loading="lazy" decoding="async"
-                 alt="Intensive Care Unit with three numbered bays, each holding an adjustable bed, a bedside patient monitor and a ventilator, with privacy curtains and an ICU wall sign.">
+                 alt="Intensive care unit with three beds and bedside monitoring equipment.">
           </picture>
-          <figcaption>Intensive Care Unit (ICU)</figcaption>
+          <figcaption>Intensive care unit — illustrative image</figcaption>
         </figure>
 
         <figure class="gallery-item gallery-item--photo">
@@ -64,25 +87,15 @@
                  srcset="assets/img/operation-theatre-640.jpg 640w, assets/img/operation-theatre.jpg 1280w"
                  sizes="(max-width: 780px) 100vw, 400px"
                  width="1280" height="853" loading="lazy" decoding="async"
-                 alt="Operation theatre with a mobile C-Arm imaging unit beside the operating table, twin overhead surgical lights, an anaesthesia workstation and a large wall display showing live X-ray images.">
+                 alt="Operating theatre with surgical lights, anaesthesia equipment and C-Arm imaging.">
           </picture>
-          <figcaption>Operation Theatre with C-Arm</figcaption>
+          <figcaption>Operating theatre — illustrative image</figcaption>
         </figure>
+      </div>
 
-        <figure class="gallery-item gallery-item--photo">
-          <picture>
-            <source type="image/webp"
-                    srcset="assets/img/laboratory-640.webp 640w, assets/img/laboratory.webp 1280w"
-                    sizes="(max-width: 780px) 100vw, 400px">
-            <img src="assets/img/laboratory.jpg"
-                 srcset="assets/img/laboratory-640.jpg 640w, assets/img/laboratory.jpg 1280w"
-                 sizes="(max-width: 780px) 100vw, 400px"
-                 width="1280" height="853" loading="lazy" decoding="async"
-                 alt="Hospital laboratory with analyser benches along the walls, a central island holding a microscope, pipettes and racks of blood collection tubes, and a glass-fronted cold storage refrigerator.">
-          </picture>
-          <figcaption>Laboratory</figcaption>
-        </figure>
-
+      <!-- --------------- DIAGNOSTICS AND SUPPORT ----------------- -->
+      <h2 class="mt-4 mb-3">Diagnostics and support services</h2>
+      <div class="gallery-grid" data-gallery>
         <figure class="gallery-item gallery-item--photo">
           <picture>
             <source type="image/webp"
@@ -92,9 +105,9 @@
                  srcset="assets/img/mri-suite-640.jpg 640w, assets/img/mri-suite.jpg 1280w"
                  sizes="(max-width: 780px) 100vw, 400px"
                  width="1280" height="853" loading="lazy" decoding="async"
-                 alt="MRI suite with a 1.5 Tesla scanner and patient table, a wall sign reading MRI – 1.5 Tesla Suite, and the adjoining control room visible through a viewing window with scan images on screen.">
+                 alt="MRI scanner and adjoining control room.">
           </picture>
-          <figcaption>MRI — 1.5 Tesla suite</figcaption>
+          <figcaption>MRI suite — illustrative image</figcaption>
         </figure>
 
         <figure class="gallery-item gallery-item--photo">
@@ -106,23 +119,23 @@
                  srcset="assets/img/ct-scan-640.jpg 640w, assets/img/ct-scan.jpg 1280w"
                  sizes="(max-width: 780px) 100vw, 400px"
                  width="1280" height="853" loading="lazy" decoding="async"
-                 alt="CT scan room with the scanner gantry and patient table, an emergency trolley and monitor alongside, and the technician control room behind a lead-glass window.">
+                 alt="CT scanner, patient table and adjoining control room.">
           </picture>
-          <figcaption>CT Scan room</figcaption>
+          <figcaption>CT scan room — illustrative image</figcaption>
         </figure>
 
-        <figure class="gallery-item gallery-item--wide gallery-item--photo">
+        <figure class="gallery-item gallery-item--photo">
           <picture>
             <source type="image/webp"
-                    srcset="assets/img/ambulance-640.webp 640w, assets/img/ambulance.webp 1280w"
-                    sizes="(max-width: 780px) 100vw, 820px">
-            <img src="assets/img/ambulance.jpg"
-                 srcset="assets/img/ambulance-640.jpg 640w, assets/img/ambulance.jpg 1280w"
-                 sizes="(max-width: 780px) 100vw, 820px"
+                    srcset="assets/img/laboratory-640.webp 640w, assets/img/laboratory.webp 1280w"
+                    sizes="(max-width: 780px) 100vw, 400px">
+            <img src="assets/img/laboratory.jpg"
+                 srcset="assets/img/laboratory-640.jpg 640w, assets/img/laboratory.jpg 1280w"
+                 sizes="(max-width: 780px) 100vw, 400px"
                  width="1280" height="853" loading="lazy" decoding="async"
-                 alt="Ambulance service poster: an Ariyalur Golden Hospital advanced life support ambulance parked at the emergency entrance while two paramedics load a patient on a stretcher, with the words Ambulance Service Available 24×7.">
+                 alt="Laboratory work area with analysers and testing equipment.">
           </picture>
-          <figcaption>Ambulance service — available 24×7</figcaption>
+          <figcaption>On-site laboratory area — illustrative image</figcaption>
         </figure>
 
         <figure class="gallery-item gallery-item--photo">
@@ -134,24 +147,15 @@
                  srcset="assets/img/blood-bank-640.jpg 640w, assets/img/blood-bank.jpg 1280w"
                  sizes="(max-width: 780px) 100vw, 400px"
                  width="1280" height="853" loading="lazy" decoding="async"
-                 alt="Blood bank with refrigerated cabinets storing labelled units of whole blood, packed red cells, plasma and platelets, a testing bench with sample tubes, and insulated transport boxes.">
+                 alt="Blood-bank storage and testing area.">
           </picture>
-          <figcaption>Blood bank</figcaption>
+          <figcaption>Blood-bank area — illustrative image</figcaption>
         </figure>
+      </div>
 
-        <figure class="gallery-item gallery-item--photo">
-          <picture>
-            <source type="image/webp"
-                    srcset="assets/img/emergency-ward-640.webp 640w, assets/img/emergency-ward.webp 1280w"
-                    sizes="(max-width: 780px) 100vw, 400px">
-            <img src="assets/img/emergency-ward.jpg"
-                 srcset="assets/img/emergency-ward-640.jpg 640w, assets/img/emergency-ward.jpg 1280w"
-                 sizes="(max-width: 780px) 100vw, 400px"
-                 width="1280" height="853" loading="lazy" decoding="async"
-                 alt="Emergency and casualty ward: a staffed help desk under the Emergency &amp; Casualty Ward sign, colour-coded triage floor markings leading to numbered treatment bays where nurses attend to patients on trolleys and beds, with overhead signs for casualty, treatment area, observation and discharge.">
-          </picture>
-          <figcaption>Emergency &amp; casualty ward</figcaption>
-        </figure>
+      <div class="info-box mt-4">
+        <h4>Access and image use</h4>
+        <p>Clinical areas are restricted. Photographs are provided for information; public tours are not available unless approved in advance. Images are published with applicable permissions and show no patient information. Gallery last reviewed: August 2026.</p>
       </div>
     </div>
   </section>
@@ -162,12 +166,12 @@
       <div class="cta-banner">
         <div>
           <span class="eyebrow eyebrow--light">Visit us</span>
-          <h2>See the hospital for yourself</h2>
-          <p>Walk in for an outpatient consultation or call ahead to arrange a visit to the facility.</p>
+          <h2>Plan your visit</h2>
+          <p>Call reception for directions, appointment information or accessibility assistance. Please check doctor availability and OP timings before travelling.</p>
         </div>
         <div class="cta-banner__actions">
-          <a class="btn btn--white" href="https://maps.app.goo.gl/wsDsDp3sPKqYFoRS6" target="_blank" rel="noopener">Get Directions</a>
-          <a class="btn btn--light" href="tel:04329222530">Call 04329 222530</a>
+          <a class="btn btn--white" href="https://maps.app.goo.gl/wsDsDp3sPKqYFoRS6" target="_blank" rel="noopener">Directions to Ariyalur Golden Hospital</a>
+          <a class="btn btn--light" href="tel:04329222530">Reception: 04329 222530</a>
         </div>
       </div>
     </div>

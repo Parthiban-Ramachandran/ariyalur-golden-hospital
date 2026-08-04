@@ -18,103 +18,92 @@ BUILD = ROOT / "_build"
 
 DEFAULT_AUTHOR = "Ariyalur Golden Hospital (PVT) Ltd."
 
+# Absolute origin used for canonical links, og:url, og:image and the Hospital
+# JSON-LD. Change this one line when the hospital's own domain goes live — the
+# same URL is quoted in the text of disclaimer.html §1 and terms.html §1.
+BASE_URL = "https://ariyalur-golden-hospital.vercel.app/"
+
 PAGES = {
     "index.html": {
         "active": "INDEX",
         "author": "Ariyalur Golden Hospital",
-        "title": "Ariyalur Golden Hospital | Multi-Speciality Hospital in Ariyalur",
-        "desc": "Ariyalur Golden Hospital — multi-speciality hospital with 24×7 emergency care, ICU, blood bank, dialysis, MRI 1.5 Tesla, CT scan, modern operation theatres and expert consultants. Call 04329 222530.",
-        "keywords": "multi speciality hospital Ariyalur, 24x7 emergency hospital, cardiology, neurosurgery, urology, dialysis centre, medical oncology, MRI 1.5 Tesla, CT scan, blood bank, ICU, maternity hospital, cashless hospital",
+        "title": "Ariyalur Golden Hospital | Multispecialty Hospital in Ariyalur",
+        "desc": "Ariyalur Golden Hospital provides emergency care, specialist consultations, surgery and diagnostic services in Ariyalur, Tamil Nadu. Call 04329 222530.",
     },
     "about.html": {
         "active": "ABOUT",
-        "title": "About Us | Ariyalur Golden Hospital (PVT) Ltd.",
-        "desc": "Learn about Ariyalur Golden Hospital — our mission, vision, core values and the multi-speciality services we provide to Ariyalur and the surrounding districts.",
-        "keywords": "about Ariyalur Golden Hospital, hospital mission vision, multi speciality hospital Ariyalur, hospital history, why choose us",
+        "title": "About Ariyalur Golden Hospital | Hospital in Ariyalur",
+        "desc": "Learn about Ariyalur Golden Hospital, its patient-care approach, departments and facilities serving Ariyalur and nearby communities.",
     },
     "case-studies.html": {
         "active": "CASE_STUDIES",
-        "title": "Case Studies | Treatment Pathways — Ariyalur Golden Hospital",
-        "desc": "Illustrative case studies showing how emergency care, imaging, theatre, intensive care and rehabilitation work together at Ariyalur Golden Hospital — trauma, joint replacement, kidney stone, dialysis, emergency caesarean and poisoning.",
-        "keywords": "hospital case studies Ariyalur, trauma care case study, joint replacement, kidney stone surgery, dialysis, emergency caesarean, poisoning treatment, treatment pathway, patient care journey",
+        "title": "Illustrative Treatment Pathways | Ariyalur Golden Hospital",
+        "desc": "General information about how assessment, diagnosis, treatment and follow-up may be coordinated at Ariyalur Golden Hospital.",
     },
     "doctors.html": {
         "active": "DOCTORS",
-        "title": "Our Doctors | Specialist Consultants — Ariyalur Golden Hospital",
-        "desc": "Meet the specialist consultants at Ariyalur Golden Hospital across cardiology, neurosurgery, urology, nephrology, oncology, pulmonology, radiology, paediatrics, obstetrics & gynaecology, general medicine, psychiatry, vascular surgery and physiotherapy.",
-        "keywords": "doctors Ariyalur Golden Hospital, cardiologist Ariyalur, neurosurgeon, urologist, nephrologist, oncologist, pulmonologist, paediatrician, gynaecologist, psychiatrist, vascular surgeon, physiotherapist, consultant doctors",
+        "title": "Our Doctors | Consultants — Ariyalur Golden Hospital",
+        "desc": "Consultants at Ariyalur Golden Hospital and the specialties they cover. Call reception on 04329 222530 to confirm the current consultation schedule.",
     },
     "departments.html": {
         "active": "DEPARTMENTS",
-        "title": "Departments | Centres of Excellence — Ariyalur Golden Hospital",
-        "desc": "Explore the seventeen clinical departments at Ariyalur Golden Hospital — cardiology, neurology, orthopaedics, general surgery, urology, nephrology, oncology, pulmonology, paediatrics, obstetrics & gynaecology, psychiatry, vascular surgery and more.",
-        "keywords": "hospital departments Ariyalur, cardiology department, neurology, orthopaedics, general surgery, urology, nephrology, medical oncology, pulmonology, radiology, paediatrics, obstetrics gynaecology, psychiatry, vascular surgery, anaesthesiology, physiotherapy",
+        "title": "Hospital Departments in Ariyalur | Ariyalur Golden Hospital",
+        "desc": "Explore clinical departments at Ariyalur Golden Hospital. Specialist schedules may change; please call reception before travelling.",
     },
     "services.html": {
         "active": "SERVICES",
-        "title": "Medical Services | Ariyalur Golden Hospital (PVT) Ltd.",
-        "desc": "Main services — orthopaedics, general surgery and laser surgery — alongside emergency and trauma care, ICU, joint replacement, arthroscopy, spine surgery, laparoscopic surgery, kidney stone and prostate surgery, dialysis, oncology, poison treatment and maternity care.",
-        "keywords": "medical services Ariyalur, orthopaedics Ariyalur, general surgery, laser surgery Ariyalur, piles laser treatment, varicose veins, emergency care, trauma care, ICU, joint replacement, arthroscopy, spine surgery, laparoscopic surgery, kidney stone surgery, prostate surgery, dialysis, poison treatment, maternity care",
+        "title": "Hospital Services in Ariyalur | Ariyalur Golden Hospital",
+        "desc": "Explore selected medical, surgical, emergency and support services at Ariyalur Golden Hospital. Call to confirm current availability.",
     },
     "scans.html": {
         "active": "SCANS",
-        "title": "Scans & Imaging | MRI 1.5 Tesla, CT Scan, X-Ray — Ariyalur Golden Hospital",
-        "desc": "In-house scans at Ariyalur Golden Hospital — MRI 1.5 Tesla, CT scan, digital X-ray, ultrasound and consultant radiology reporting, with emergency imaging available 24×7.",
-        "keywords": "MRI scan Ariyalur, MRI 1.5 Tesla, CT scan Ariyalur, digital X-ray, ultrasound scan, radiology reporting, scan centre Ariyalur, emergency CT scan",
+        "title": "MRI, CT, X-ray and Ultrasound in Ariyalur | Golden Hospital",
+        "desc": "On-site MRI, CT, X-ray and ultrasound services at Ariyalur Golden Hospital. Call to confirm availability, preparation and report timelines.",
     },
     "diagnostics.html": {
         "active": "DIAGNOSTICS",
-        "title": "Diagnostic Centre | Laboratory, ECG, ECHO, Endoscopy — Ariyalur Golden Hospital",
-        "desc": "In-house diagnostics at Ariyalur Golden Hospital — ECG, ECHO, a full laboratory and a complete endoscopy suite covering endoscopy, colonoscopy, colposcopy, hysteroscopy and laparoscopy. Scans are listed separately.",
-        "keywords": "diagnostic centre Ariyalur, laboratory Ariyalur, ECG, ECHO, blood test, endoscopy, colonoscopy, colposcopy, hysteroscopy, laparoscopy",
+        "title": "Diagnostic Centre in Ariyalur | Lab, ECG and Endoscopy",
+        "desc": "Laboratory tests, ECG, echocardiography and selected endoscopic procedures at Ariyalur Golden Hospital. Call to confirm preparation and availability.",
     },
     "facilities.html": {
         "active": "FACILITIES",
-        "title": "Hospital Facilities | Ariyalur Golden Hospital (PVT) Ltd.",
-        "desc": "Ambulance, ICU, blood bank, dialysis unit, three operation theatres with C-Arm, MRI, CT scan, pharmacy, laboratory, physiotherapy and a 24-hour emergency ward.",
-        "keywords": "hospital facilities Ariyalur, ambulance service, ICU, blood bank, dialysis unit, operation theatre, C-Arm, MRI, CT scan, pharmacy, laboratory, physiotherapy, emergency ward",
+        "title": "Hospital Facilities in Ariyalur | Ariyalur Golden Hospital",
+        "desc": "Explore selected facilities at Ariyalur Golden Hospital. Availability, hours and access vary by service; call to confirm.",
     },
     "health-checkup.html": {
         "active": "HEALTH_CHECKUP",
-        "title": "Health Check-up Packages | Ariyalur Golden Hospital (PVT) Ltd.",
-        "desc": "Master health check-up, preventive screening, family and corporate health packages at Ariyalur Golden Hospital.",
-        "keywords": "master health checkup Ariyalur, preventive health package, corporate health checkup, family health package, annual health screening",
+        "title": "Health Check-up Packages in Ariyalur | Golden Hospital",
+        "desc": "Explore health check-up options at Ariyalur Golden Hospital. Tests should be selected according to individual needs; call 04329 222530 for current inclusions and prices.",
     },
     "insurance.html": {
         "active": "INSURANCE",
-        "title": "Insurance & Cashless Treatment | Ariyalur Golden Hospital",
-        "desc": "Cashless treatment under government employee insurance, the Chief Minister's Comprehensive Health Insurance Scheme, government dialysis cover, Star Health, Medi Assist, MD India, VIDAL and other TPAs.",
-        "keywords": "cashless hospital Ariyalur, CM comprehensive health insurance scheme, government employee insurance, dialysis scheme, Star Health, Medi Assist, MD India, VIDAL, TPA hospital",
+        "title": "Insurance Support & Cashless Treatment | Ariyalur Golden Hospital",
+        "desc": "Learn about insurance support and cashless treatment at Ariyalur Golden Hospital. Availability is subject to eligibility, pre-authorisation, current empanelment, and insurer or scheme approval.",
     },
     "gallery.html": {
         "active": "GALLERY",
-        "title": "Gallery | Ariyalur Golden Hospital (PVT) Ltd.",
-        "desc": "Photo gallery of Ariyalur Golden Hospital — building, reception, ICU, operation theatres, laboratory, MRI and CT suites, doctors and ambulance service.",
-        "keywords": "Ariyalur Golden Hospital gallery, hospital photos, ICU, operation theatre, MRI, CT scan, laboratory, ambulance",
+        "title": "Hospital Gallery | Ariyalur Golden Hospital",
+        "desc": "View photographs of Ariyalur Golden Hospital, including the hospital exterior, reception, selected patient-care areas and diagnostic facilities.",
     },
     "contact.html": {
         "active": "CONTACT",
-        "title": "Contact Us | Ariyalur Golden Hospital (PVT) Ltd.",
-        "desc": "Contact Ariyalur Golden Hospital — reception 04329 222530, emergency 99438 27233, dialysis 84899 26941, token booking 94875 76493. Appointment request form and location.",
-        "keywords": "contact Ariyalur Golden Hospital, hospital phone number Ariyalur, emergency number, dialysis contact, appointment booking, hospital address",
+        "title": "Contact Ariyalur Golden Hospital | Ariyalur, Tamil Nadu",
+        "desc": "Contact Ariyalur Golden Hospital in Ariyalur, Tamil Nadu, for appointments, emergency care, dialysis enquiries and directions.",
     },
     "disclaimer.html": {
         "active": "DISCLAIMER",
         "title": "Medical & Website Disclaimer | Ariyalur Golden Hospital (PVT) Ltd.",
         "desc": "Medical and website disclaimer for Ariyalur Golden Hospital — the site is for general information only, does not create a doctor-patient relationship and is not a substitute for professional medical advice.",
-        "keywords": "medical disclaimer, website disclaimer, Ariyalur Golden Hospital, no doctor patient relationship, not medical advice, emergency notice",
     },
     "privacy.html": {
         "active": "PRIVACY",
         "title": "Privacy Policy | Ariyalur Golden Hospital (PVT) Ltd.",
         "desc": "How Ariyalur Golden Hospital collects, stores, processes and protects patient personal and health data, in line with the DPDPA 2023 and the IT Act, 2000.",
-        "keywords": "privacy policy, patient data protection, DPDPA 2023, IT Act 2000, health data privacy, cookies policy, grievance officer, Ariyalur Golden Hospital",
     },
     "terms.html": {
         "active": "TERMS",
         "title": "Terms & Conditions of Use | Ariyalur Golden Hospital (PVT) Ltd.",
-        "desc": "Terms and conditions governing the use of the Ariyalur Golden Hospital website, including intellectual property, online appointment requests, patient responsibilities and limitation of liability.",
-        "keywords": "terms and conditions, terms of use, website terms, appointment request terms, limitation of liability, governing law, Ariyalur Golden Hospital",
+        "desc": "Terms and conditions governing the use of the Ariyalur Golden Hospital website, including intellectual property, appointment requests, patient responsibilities and limitation of liability.",
     },
 }
 
@@ -147,10 +136,13 @@ def build():
         head = header
         head = head.replace("{{TITLE}}", meta["title"])
         head = head.replace("{{DESC}}", meta["desc"])
-        head = head.replace("{{KEYWORDS}}", meta["keywords"])
         # "author" is optional — pages that omit it get the registered name
         head = head.replace("{{AUTHOR}}", meta.get("author", DEFAULT_AUTHOR))
         head = head.replace("{{SLUG}}", slug)
+        # absolute canonical — the home page canonicalises to the bare origin
+        canonical = BASE_URL if slug == "index.html" else BASE_URL + slug
+        head = head.replace("{{CANONICAL}}", canonical)
+        head = head.replace("{{BASE}}", BASE_URL)
         for key in ACTIVE_KEYS:
             value = 'aria-current="page"' if key == meta["active"] else ""
             head = head.replace("{{ACTIVE_%s}}" % key, value)

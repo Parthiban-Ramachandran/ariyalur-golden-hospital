@@ -9,7 +9,7 @@ and ~30 lines of JavaScript used only for the mobile navigation drawer.
 | --- | --- |
 | `index.html` | Home |
 | `about.html` | About Us |
-| `case-studies.html` | Case Studies (illustrative treatment pathways) |
+| `case-studies.html` | Illustrative Treatment Pathways (nav label: "Treatment Pathways") |
 | `doctors.html` | Doctors (grouped by department) |
 | `departments.html` | Departments (15 detail blocks) |
 | `services.html` | Medical Services |
@@ -92,7 +92,7 @@ column), 480px (small phones).
 
 ## Accessibility
 
-- Skip link, landmark elements, one `<h1>` per page, breadcrumbs on inner pages
+- Skip link, landmark elements, one `<h1>` per page
 - `aria-current="page"` on the active nav item, `aria-expanded` on the menu button
 - Visible `:focus-visible` rings; the drawer closes on `Escape`
 - Every image has descriptive alt text; decorative SVGs are `aria-hidden`
@@ -121,14 +121,16 @@ column), 480px (small phones).
 4. **Gallery** — only the exterior photograph is real; the other tiles are placeholders.
    Copy the `<picture>` markup from the first tile for each new photograph.
 5. **Social links** — the footer icons point at `#`.
-6. **Testimonials** — the three on the home page are clearly labelled samples; replace them
-   with real feedback published with patient consent.
-7. **Case studies** — the six cases on `case-studies.html` are illustrative treatment
-   pathways, not accounts of identifiable patients, and the page says so twice (a
-   `.notice-strip` under the intro and an `.info-box` before the CTA). If the hospital wants
-   to publish real cases, replace the text but keep both notices honest: written patient
-   consent is required, no identifying detail may be used, and nothing should be phrased as a
-   guarantee of outcome.
+6. **Testimonials** — the sample testimonials have been removed from the home page. Publish
+   patient feedback only once it is genuine and published with written patient consent.
+7. **Treatment pathways** — the six pathways on `case-studies.html` are fictional,
+   simplified examples in three stages (Assessment / Possible care / Follow-up), not accounts
+   of identifiable patients. One `.notice-strip` under the intro states this, and each
+   pathway carries a one-line clinician-decides reminder. If the hospital wants to publish
+   real cases, replace the text but keep the notices honest: written patient consent is
+   required, no identifying detail may be used, and nothing should be phrased as a guarantee
+   of outcome. The filename is still `case-studies.html`; the review asked for a
+   `/treatment-pathways/` URL, which needs a rename plus redirects.
 8. **Absolute URLs** — set `og:image` and the canonical links to the live domain. The legal
    pages also quote the current Vercel URL in their text (`disclaimer.html` §1,
    `terms.html` §1) — update both when the hospital's own domain goes live.
