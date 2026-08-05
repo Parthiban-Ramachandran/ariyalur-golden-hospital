@@ -9,7 +9,7 @@ and ~30 lines of JavaScript used only for the mobile navigation drawer.
 | --- | --- |
 | `index.html` | Home |
 | `about.html` | About Us |
-| `case-studies.html` | Overview of Patient Care (nav label: "Patient Care") |
+| `patient-care-outcomes.html` | Overview of Patient Care Outcomes (nav label: "Patient Care Outcomes") |
 | `doctors.html` | Doctors (grouped by department) |
 | `departments.html` | Departments (15 detail blocks) |
 | `services.html` | Medical Services |
@@ -123,13 +123,13 @@ column), 480px (small phones).
 5. **Social links** — the footer icons point at `#`.
 6. **Testimonials** — the sample testimonials have been removed from the home page. Publish
    patient feedback only once it is genuine and published with written patient consent.
-7. **Patient care examples** — the six examples on `case-studies.html` are fictional,
+7. **Patient care examples** — the six examples on `patient-care-outcomes.html` are fictional,
    simplified examples in three stages (Assessment / Possible care / Follow-up), not accounts
    of identifiable patients. One `.notice-strip` under the intro states this, and each
    example carries a one-line clinician-decides reminder. If the hospital wants to publish
    real cases, replace the text but keep the notices honest: written patient consent is
    required, no identifying detail may be used, and nothing should be phrased as a guarantee
-   of outcome. The filename is still `case-studies.html`; the review asked for a
+   of outcome. The filename is still `patient-care-outcomes.html`; the review asked for a
    `/patient-care/` URL, which needs a rename plus redirects.
 8. **Absolute URLs** — set `og:image` and the canonical links to the live domain. The legal
    pages also quote the current Vercel URL in their text (`disclaimer.html` §1,

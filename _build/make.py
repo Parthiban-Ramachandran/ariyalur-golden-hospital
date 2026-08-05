@@ -35,9 +35,9 @@ PAGES = {
         "title": "About Ariyalur Golden Hospital | Hospital in Ariyalur",
         "desc": "Learn about Ariyalur Golden Hospital, its patient-care approach, departments and facilities serving Ariyalur and nearby communities.",
     },
-    "case-studies.html": {
-        "active": "CASE_STUDIES",
-        "title": "Overview of Patient Care | Ariyalur Golden Hospital",
+    "patient-care-outcomes.html": {
+        "active": "PATIENT_CARE",
+        "title": "Overview of Patient Care Outcomes | Ariyalur Golden Hospital",
         "desc": "General information about how assessment, diagnosis, treatment and follow-up may be coordinated at Ariyalur Golden Hospital.",
     },
     "doctors.html": {
@@ -108,7 +108,7 @@ PAGES = {
 }
 
 ACTIVE_KEYS = [
-    "INDEX", "ABOUT", "CASE_STUDIES", "DEPARTMENTS", "DOCTORS", "SERVICES",
+    "INDEX", "ABOUT", "PATIENT_CARE", "DEPARTMENTS", "DOCTORS", "SERVICES",
     "SCANS", "DIAGNOSTICS", "FACILITIES", "HEALTH_CHECKUP",
     "INSURANCE", "GALLERY", "CONTACT",
 ]
@@ -117,7 +117,7 @@ ACTIVE_KEYS = [
 # open. The parent gets aria-current="true" (current item in a set), while the
 # page itself keeps aria-current="page" on its dropdown entry.
 SECTIONS = {
-    "ABOUT": ["ABOUT", "CASE_STUDIES", "GALLERY"],
+    "ABOUT": ["ABOUT", "PATIENT_CARE", "GALLERY"],
     "SERVICES": ["SERVICES", "SCANS", "DIAGNOSTICS", "FACILITIES", "HEALTH_CHECKUP"],
 }
 

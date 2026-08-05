@@ -155,7 +155,7 @@ table {
 
   /* Spacing rhythm */
   --gap: 26px;
-  --section-y: 96px;
+  --section-y: 36px;
   --container: 1200px;
 
   /* Motion */
@@ -273,7 +273,17 @@ strong {
 }
 
 .section--tight {
-  padding-block: 68px;
+  padding-block: 26px;
+}
+
+/* notice band sitting directly above a tinted section — drop its trailing gap */
+.section--flush-b {
+  padding-bottom: 0;
+}
+
+/* section following one that already ends in padding — drop the duplicate gap */
+.section--flush-t {
+  padding-top: 0;
 }
 
 .section--surface {
@@ -329,6 +339,15 @@ strong {
 /* Keeps card width consistent with fuller rows when only 1–2 cards are present */
 .grid-auto-sm--fill {
   grid-template-columns: repeat(auto-fill, minmax(210px, 1fr));
+}
+
+/* Three-up card row. grid-auto-rows: 1fr keeps every card the same height,
+   across rows as well as within one. */
+.row-3 {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  grid-auto-rows: 1fr;
+  gap: var(--gap);
 }
 
 .grid-auto-lg {
@@ -1078,6 +1097,14 @@ strong {
   -webkit-mask-image: radial-gradient(620px 340px at 76% 30%, #000, transparent 76%);
 }
 
+/* One gap under the hero on every page — the home page's full .hero included —
+   whatever padding the section that follows carries of its own
+   (--tight, --flush-b, plain). */
+.hero + .section,
+.page-hero + .section {
+  padding-top: var(--section-y);
+}
+
 .page-hero__inner {
   position: relative;
   max-width: 780px;
@@ -1097,6 +1124,11 @@ strong {
 .section-title {
   max-width: 720px;
   margin-bottom: 52px;
+}
+
+/* an intro that is the whole section has nothing below it to space away from */
+.section-title:last-child {
+  margin-bottom: 0;
 }
 
 .section-title--center {
@@ -1424,17 +1456,19 @@ strong {
 
 /* Main service — the three specialities the hospital leads with */
 .service-card--main {
+  position: relative;
+  overflow: hidden;
   border-color: var(--blue-200);
   box-shadow: var(--sh-md);
   padding-top: 34px;
 }
 
+/* clipped by the card's own radius, so the bar follows the rounded corners */
 .service-card--main::before {
   content: "";
   position: absolute;
   inset: 0 0 auto;
   height: 4px;
-  border-radius: var(--r-lg) var(--r-lg) 0 0;
   background: linear-gradient(90deg, var(--blue-600), var(--green-500));
 }
 
@@ -1465,6 +1499,77 @@ strong {
 
 .facility-card p {
   font-size: .9rem;
+}
+
+/* Department index (departments.html "Choose a department")
+   A compact directory rather than a wall of full cards — groups of one or two
+   departments no longer stretch into oversized tiles. */
+.dept-group {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  margin: 0 0 18px;
+  font-size: .78rem;
+  letter-spacing: .14em;
+  text-transform: uppercase;
+  color: var(--blue-600);
+}
+
+.dept-group + .dept-index {
+  margin-bottom: 32px;
+}
+
+/* hairline filling the rest of the line beside the group label */
+.dept-group::after {
+  content: "";
+  flex: 1;
+  height: 1px;
+  background: var(--line);
+}
+
+.dept-index {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 14px;
+}
+
+.dept-chip {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  padding: 14px 18px 14px 14px;
+  border-radius: var(--r-md);
+  background: var(--white);
+  border: 1px solid var(--line);
+  box-shadow: var(--sh-sm);
+  font-weight: 700;
+  font-size: .95rem;
+  color: var(--ink);
+  transition: transform var(--t), box-shadow var(--t), border-color var(--t);
+}
+
+.dept-chip:hover {
+  transform: translateY(-3px);
+  box-shadow: var(--sh-md);
+  border-color: var(--blue-200);
+}
+
+.dept-chip .icon-badge {
+  width: 42px;
+  height: 42px;
+  border-radius: 13px;
+  margin-bottom: 0;
+}
+
+.dept-chip .icon-badge svg {
+  width: 21px;
+  height: 21px;
+}
+
+.dept-chip:hover .icon-badge {
+  transform: rotate(-6deg) scale(1.05);
+  background: linear-gradient(140deg, var(--blue-600), var(--green-600));
+  color: #fff;
 }
 
 /* Insurance card */
@@ -2253,7 +2358,7 @@ body.has-lightbox {
   color: var(--blue-700);
 }
 
-/* Case study card (case-studies page) — a case is a journey, so the three
+/* Case study card (patient-care-outcomes page) — a case is a journey, so the three
    stages read as a connected timeline rather than three loose columns: the
    numbered markers sit on a dashed rule that runs across the card on desktop
    and turns vertical below 780px. Kept visually distinct from .dept-detail so
@@ -2333,9 +2438,60 @@ body.has-lightbox {
 
 .case-card__summary {
   margin-top: 18px;
-  max-width: 82ch;
   font-size: .96rem;
   color: var(--muted);
+}
+
+/* header, summary and the service tags on the left, the illustrating photo on
+   the right. The tag row is pushed to the bottom of the text column so it lines
+   up with the foot of the photo instead of leaving a gap; the pair stacks below
+   780px, where the photo follows the text in source order. */
+.case-card__intro {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) clamp(320px, 46%, 560px);
+  gap: 32px;
+  align-items: stretch;
+}
+
+.case-card__intro-text {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.case-card__meta {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 14px;
+  margin-top: 22px;
+}
+
+.case-card__meta .tag-row {
+  margin: 0;
+}
+
+.case-card__media {
+  margin: 0;
+  border-radius: var(--r-md);
+  overflow: hidden;
+  border: 1px solid var(--line);
+  background: var(--surface-2);
+}
+
+.case-card__media img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  min-height: 100%;
+  aspect-ratio: 3 / 2;
+  object-fit: cover;
+  transition: transform var(--t);
+}
+
+.case-card:hover .case-card__media img {
+  transform: scale(1.03);
 }
 
 .case-steps {
@@ -2476,10 +2632,18 @@ body.has-lightbox {
 }
 
 /* Gallery grid */
+/* flex rather than grid: every tile keeps the same width, and a short last row
+   centres under the full rows instead of sitting left in its grid tracks */
 .gallery-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(262px, 1fr));
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
   gap: 22px;
+}
+
+.gallery-grid > * {
+  flex: 1 1 calc((100% - 44px) / 3);
+  max-width: calc((100% - 44px) / 3);
 }
 
 /* Anchor offset for sticky header */
@@ -3448,8 +3612,12 @@ ol.legal-list {
 }
 
 @media (max-width: 1199px) {
+  .dept-index {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+
   :root {
-    --section-y: 76px;
+    --section-y: 32px;
     --gap: 22px;
   }
 
@@ -3702,9 +3870,26 @@ ol.legal-list {
   }
 }
 
+/* Below this width a side-by-side photo would be too small to read, so the case
+   intro stacks and the photo runs the full width of the card. */
+@media (max-width: 900px) {
+  .case-card__intro {
+    grid-template-columns: 1fr;
+    gap: 22px;
+  }
+
+  .case-card__meta {
+    padding-top: 16px;
+  }
+}
+
 @media (max-width: 780px) {
   :root {
-    --section-y: 64px;
+    --section-y: 28px;
+  }
+
+  .dept-index {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 
   body {
@@ -3719,6 +3904,16 @@ ol.legal-list {
   .grid-3,
   .grid-4 {
     grid-template-columns: 1fr;
+  }
+
+  .row-3 {
+    grid-template-columns: 1fr;
+  }
+
+  /* two across, then one, below the desktop three-up layout */
+  .gallery-grid > * {
+    flex-basis: 262px;
+    max-width: 100%;
   }
 
   .legal-toc {
@@ -3840,6 +4035,7 @@ ol.legal-list {
   .case-card {
     padding: 26px 24px 22px;
   }
+
 
   .case-steps {
     grid-template-columns: 1fr;
@@ -3964,6 +4160,10 @@ ol.legal-list {
 }
 
 @media (max-width: 480px) {
+  .dept-index {
+    grid-template-columns: 1fr;
+  }
+
   /* the ghost numeral is decoration — drop it before it squeezes the title */
   .case-card__num {
     display: none;
