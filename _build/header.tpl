@@ -131,7 +131,7 @@
         </button>
         <ul class="nav__menu">
           <li><a href="about.html" {{ACTIVE_ABOUT}}>About Us</a></li>
-          <li><a href="case-studies.html" {{ACTIVE_CASE_STUDIES}}>Treatment Pathways</a></li>
+          <li><a href="case-studies.html" {{ACTIVE_CASE_STUDIES}}>Patient Care</a></li>
           <li><a href="gallery.html" {{ACTIVE_GALLERY}}>Gallery</a></li>
         </ul>
       </div>

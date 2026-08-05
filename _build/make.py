@@ -37,7 +37,7 @@ PAGES = {
     },
     "case-studies.html": {
         "active": "CASE_STUDIES",
-        "title": "Illustrative Treatment Pathways | Ariyalur Golden Hospital",
+        "title": "Overview of Patient Care | Ariyalur Golden Hospital",
         "desc": "General information about how assessment, diagnosis, treatment and follow-up may be coordinated at Ariyalur Golden Hospital.",
     },
     "doctors.html": {
