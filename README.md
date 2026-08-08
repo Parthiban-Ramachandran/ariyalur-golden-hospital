@@ -19,6 +19,7 @@ and ~30 lines of JavaScript used only for the mobile navigation drawer.
 | `health-checkup.html` | Health Check-up Packages |
 | `insurance.html` | Insurance & Cashless Treatment |
 | `gallery.html` | Gallery |
+| `careers.html` | Careers (linked from the About dropdown and the footer Quick Links) |
 | `contact.html` | Contact |
 | `disclaimer.html` | Medical & Website Disclaimer |
 | `privacy.html` | Privacy Policy |
@@ -34,39 +35,36 @@ Open `index.html` in a browser — no build step or server is required to view t
 
 ```
 .
-├── *.html                  ← the 16 finished pages (generated — see below)
+├── *.html                  ← the 17 finished pages
 ├── site.webmanifest
-├── assets/
-│   ├── css/style.css       ← the entire design system
-│   ├── js/menu.js          ← mobile drawer toggle only
-│   ├── img/                ← optimised photographs (jpg + webp, 2 widths)
-│   ├── web/                ← favicons and app icons
-│   ├── logo.png, logo-mark.png
-│   └── hospitalimage.png   ← original full-resolution source photo
-└── _build/                 ← authoring sources, not deployed
-    ├── header.tpl          ← shared <head>, top bar, header and nav
-    ├── footer.tpl          ← shared footer
-    ├── pages/*.html        ← the unique <main> content of each page
-    └── make.py             ← assembles the pages
+└── assets/
+    ├── css/style.css       ← the entire design system
+    ├── js/menu.js          ← mobile drawer toggle only
+    ├── js/lightbox.js      ← gallery lightbox
+    ├── img/                ← optimised photographs (jpg + webp, 2 widths)
+    ├── web/                ← favicons and app icons
+    ├── logo.png, logo-mark.png
+    └── hospitalimage.png   ← original full-resolution source photo
 ```
+
+`_lbtest.html` is a lightbox scratch file, not a published page — it is deliberately left
+out of the nav and the page table above.
 
 ### Editing
 
-The header and footer are identical on all 16 pages, so they live in one place.
+The site is now hand-edited. Earlier versions were assembled by a `_build/` templating
+script (`header.tpl`, `footer.tpl`, `pages/*.html`, `make.py`); that directory has since
+been removed and was never committed, so **there is no build step** — edit the root `.html`
+files directly and open them in a browser.
 
-- To change the nav, logo, meta tags or footer → edit `_build/header.tpl` / `_build/footer.tpl`
-- To change a page's content → edit `_build/pages/<page>.html` (body content only)
-- To change titles, meta descriptions or keywords → edit the `PAGES` dict in `_build/make.py`
+The consequence is that the top bar, header/nav and footer are duplicated in all 17 files.
+A change to any of them has to be repeated in every page, and the pages will drift apart if
+it is not. When adding a nav item or a new page, the reliable approach is to copy an
+existing page's scaffolding and apply the shared-markup edit to every file in one scripted
+pass, then check that each page still has exactly the links you expect.
 
-Then regenerate the root HTML files:
-
-```bash
-python3 _build/make.py
-```
-
-The output is ordinary static HTML with no runtime dependency on the build script. If you
-prefer to abandon the templating and hand-edit the 17 root files directly, you can — just
-delete `_build/` and remember that header/footer changes then have to be made 17 times.
+Per-page `<title>`, meta description, `og:*` tags and the canonical link live in each
+file's own `<head>`.
 
 ## Design system (`assets/css/style.css`)
 
@@ -142,3 +140,19 @@ column), 480px (small phones).
    hospital's supplied text against the DPDPA 2023 and IT Act, 2000. Have them checked by
    the hospital's legal advisor before going live, and keep the "Effective / Last updated —
    July 2026" lines on `privacy.html` and `terms.html` current when the text changes.
+11. **Careers page** — the six role groups on `careers.html` (Nursing, Allied Health &
+   Diagnostics, Doctors, Pharmacy, Administration & Front Office, Support Services) are
+   *indicative categories the hospital recruits for, not confirmed live vacancies*. A
+   `.notice-strip` under the hero says so explicitly, and the section intro repeats it.
+   Have the hospital confirm the role list, the qualifications quoted for each group and
+   the statement that freshers are considered, and replace the categories with real posts
+   (with a date) if and when specific vacancies are advertised. If the notice is removed,
+   the page starts reading as a list of open jobs — keep the two honest, or take the page
+   down between recruitment rounds.
+
+   Applications are handled by phone and in person: reception on 04329 222530 plus walk-in
+   CV submission, matching the site's no-forms decision (item 2). There is deliberately no
+   careers email address, because the hospital has not supplied one — add one to the
+   "Recruitment enquiries" tiles once it exists. The page also carries a no-recruitment-fee
+   warning, an equal-opportunity statement and a line pointing applicants at the Privacy
+   Policy for how their CV is handled; keep all three if the page is edited.
