@@ -142,16 +142,22 @@ column), 480px (small phones).
    July 2026" lines on `privacy.html` and `terms.html` current when the text changes.
 11. **Careers page — two blockers before this page can go live.**
 
-   *(a) The vacancy list is fabricated.* Every row in the "Current vacancies" table on
-   `careers.html` (Staff Nurse, Duty Medical Officer, Laboratory Technician, Radiographer,
-   Pharmacist, Front Office Executive — including the post counts) is an **example entry
-   written to show the layout**, not a real opening. So are the six role groups below it.
-   Three things say so on the page: the `.notice-strip` under the hero, the table caption,
-   and an "Example entry" line under every post. **Replace the whole `<tbody>` with the
-   hospital's confirmed openings, and update the caption's "Last updated" date, before this
-   page is published.** If you delete the notices while the sample data is still in place,
-   the page becomes an advert for jobs that do not exist and people will travel to Ariyalur
-   for them. Take the section down between recruitment rounds rather than leave it stale.
+   *(a) The vacancy list is fabricated, and nothing on the page says so any more.* Every
+   row in the "Current vacancies" table on `careers.html` (Staff Nurse, Duty Medical
+   Officer, Laboratory Technician, Radiographer, Pharmacist, Front Office Executive —
+   including the post counts) was written to show the layout, not supplied by the hospital.
+   So were the six role groups below it.
+
+   The page originally carried three markers saying this — a `.notice-strip` under the
+   hero, a table caption, and an "Example entry" line under every post. **All three were
+   removed at the hospital's request, and the invented data was left in place.** As it
+   stands the page therefore advertises six openings that do not exist, to an audience who
+   may travel to Ariyalur for them. This is the single most important thing to fix here:
+   **replace the whole `<tbody>` with the hospital's confirmed openings before the page is
+   published**, and take the section down between recruitment rounds rather than let it go
+   stale. If confirmed vacancies are not available yet, delete the "Current vacancies"
+   section instead of publishing the sample rows. The markers are recoverable from git
+   history if they are wanted back.
 
    *(b) The application form goes nowhere.* `careers.html` has a real `<form>` collecting
    name, mobile, email, qualification, council registration, experience and a CV upload —
