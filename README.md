@@ -103,16 +103,16 @@ column), 480px (small phones).
    The underlying details are still missing and should be filled in when the hospital
    confirms them: years of experience for most consultants, the email address, accreditation
    status, the founding and expansion years on `about.html`, the Chairman's message and
-   signature, health check-up package prices, and Dr. Santhip's consultation time and the
-   dialysis slot timing. The full consultant roster (names, qualifications, visiting days and
+   signature, health check-up package prices, and the dialysis slot timing. The full
+   consultant roster (names, qualifications, visiting days and
    timings) was supplied by the hospital and is reflected on `doctors.html` and
    `departments.html` — the two pages are the only places doctor data lives, so they must be
    kept in step whenever a consultant changes.
-2. **Appointment forms** — the site no longer contains any `<form>`. Both the `contact.html`
-   appointment form and the "Quick Appointment" hero form on `index.html` have been removed;
-   each place now shows the reception and token-booking numbers instead. The forms section of
-   `style.css` (`.form-card`, `.form-grid`, `.field`, `.glass-form`) is kept so a form can be
-   reinstated later — if you do, point its `action` at a mail handler or CRM endpoint and add
+2. **Forms** — the `contact.html` appointment form and the "Quick Appointment" hero form on
+   `index.html` are still removed; each place shows the reception and token-booking numbers
+   instead. The one `<form>` on the site is the careers application form (see item 11), and
+   **it has no endpoint yet** — read that item before deploying it. If you reinstate the
+   appointment forms, point each `action` at a mail handler or CRM endpoint and add
    server-side validation.
 3. **Google Map** — replace the `.map-placeholder` block in `contact.html` with the real
    embed once the full address is confirmed.
@@ -140,19 +140,39 @@ column), 480px (small phones).
    hospital's supplied text against the DPDPA 2023 and IT Act, 2000. Have them checked by
    the hospital's legal advisor before going live, and keep the "Effective / Last updated —
    July 2026" lines on `privacy.html` and `terms.html` current when the text changes.
-11. **Careers page** — the six role groups on `careers.html` (Nursing, Allied Health &
-   Diagnostics, Doctors, Pharmacy, Administration & Front Office, Support Services) are
-   *indicative categories the hospital recruits for, not confirmed live vacancies*. A
-   `.notice-strip` under the hero says so explicitly, and the section intro repeats it.
-   Have the hospital confirm the role list, the qualifications quoted for each group and
-   the statement that freshers are considered, and replace the categories with real posts
-   (with a date) if and when specific vacancies are advertised. If the notice is removed,
-   the page starts reading as a list of open jobs — keep the two honest, or take the page
-   down between recruitment rounds.
+11. **Careers page — two blockers before this page can go live.**
 
-   Applications are handled by phone and in person: reception on 04329 222530 plus walk-in
-   CV submission, matching the site's no-forms decision (item 2). There is deliberately no
-   careers email address, because the hospital has not supplied one — add one to the
-   "Recruitment enquiries" tiles once it exists. The page also carries a no-recruitment-fee
-   warning, an equal-opportunity statement and a line pointing applicants at the Privacy
-   Policy for how their CV is handled; keep all three if the page is edited.
+   *(a) The vacancy list is fabricated.* Every row in the "Current vacancies" table on
+   `careers.html` (Staff Nurse, Duty Medical Officer, Laboratory Technician, Radiographer,
+   Pharmacist, Front Office Executive — including the post counts) is an **example entry
+   written to show the layout**, not a real opening. So are the six role groups below it.
+   Three things say so on the page: the `.notice-strip` under the hero, the table caption,
+   and an "Example entry" line under every post. **Replace the whole `<tbody>` with the
+   hospital's confirmed openings, and update the caption's "Last updated" date, before this
+   page is published.** If you delete the notices while the sample data is still in place,
+   the page becomes an advert for jobs that do not exist and people will travel to Ariyalur
+   for them. Take the section down between recruitment rounds rather than leave it stale.
+
+   *(b) The application form goes nowhere.* `careers.html` has a real `<form>` collecting
+   name, mobile, email, qualification, council registration, experience and a CV upload —
+   but the site is static and its `action` is deliberately empty. `assets/js/careers-form.js`
+   blocks the submit and tells the applicant to call reception instead, so nothing is
+   silently lost. **To connect it:** set a real `action` URL (Formspree, Web3Forms, a CRM
+   endpoint — it must accept `multipart/form-data` for the CV) and the guard disables itself,
+   no JS change needed. Then add server-side validation and a file-size/type check; the
+   `accept` attribute and the 5 MB figure in the hint are client-side only and trivially
+   bypassed. Note the form is the only place applicants are told how their data is used —
+   the consent checkbox links `privacy.html` — so if the Privacy Policy's careers wording is
+   changed, check the two still agree. Also confirm the hospital can actually receive and
+   act on applications before switching it on; an unanswered form is worse than a phone
+   number.
+
+   There is still no careers email address, because the hospital has not supplied one — add
+   one to the "Recruitment enquiries" tile once it exists.
+
+   *Removed at the hospital's request* (kept in git history if they are wanted back): the
+   "Why join us" section, the "Submit your CV in person" contact tile, and three note boxes
+   — a no-recruitment-fee warning, an equal-opportunity statement and a note on how CVs are
+   handled. The fee warning is worth re-proposing: hospital recruitment scams that collect
+   "registration fees" in a hospital's name are common, and the page now carries no warning
+   against them.
