@@ -1,0 +1,71 @@
+====================================================================================================
+                                         T I M E S H E E T                                          
+                                    Website Design & Development                                    
+====================================================================================================
+
+  Client          :  Ariyalur Golden Hospital
+  Project         :  Multispecialty Hospital Website
+  Prepared By     :  Parthiban Ramachandran
+  Period          :  27 Jul 2026  to  08 Aug 2026
+  Working Hours   :  14:00 - 18:00  (4.00 hours per day, no break)
+  Issued On       :  08 Aug 2026
+
+----------------------------------------------------------------------------------------------------
+DATE         DAY    IN     OUT     HOURS  WORK CARRIED OUT
+----------------------------------------------------------------------------------------------------
+27-07-2026   Mon    14:00  18:00    4.00  Project setup and first full build - page framework, home,
+                                          about, services, departments, doctors and contact pages;
+                                          stylesheet and image assets
+28-07-2026   Tue    14:00  18:00    4.00  Doctors section - consultant names, specialities and
+                                          profile content updated
+29-07-2026   Wed    14:00  18:00    4.00  Doctors listing rebuilt; site-wide layout, navigation and
+                                          content improvements
+30-07-2026   Thu    14:00  18:00    4.00  Legal pages added - privacy policy, terms and disclaimer;
+                                          name corrections and copy edits
+31-07-2026   Fri    -      -        0.00  No work logged
+----------------------------------------------------------------------------------------------------
+     Week 1 subtotal (27 - 31 Jul) 16.00
+----------------------------------------------------------------------------------------------------
+03-08-2026   Mon    14:00  18:00    4.00  First client review - revisions applied across 35 pages
+                                          and assets
+04-08-2026   Tue    14:00  18:00    4.00  Remaining review points implemented - 41 files revised
+                                          across content and styling
+05-08-2026   Wed    14:00  18:00    4.00  Copy corrections site-wide; defect fixes; build files
+                                          cleaned up and project folder tidied
+06-08-2026   Thu    14:00  18:00    4.00  Spacing and white-space corrections on services,
+                                          departments, diagnostics, scans, insurance and health
+                                          check-up pages
+07-08-2026   Fri    -      -        0.00  No work logged
+08-08-2026   Sat    14:00  18:00    4.00  Careers page created - job openings, application form and
+                                          enquiry handling; careers link added to navigation and
+                                          footer site-wide
+----------------------------------------------------------------------------------------------------
+     Week 2 subtotal (03 - 08 Aug) 20.00
+----------------------------------------------------------------------------------------------------
+        TOTAL HOURS FOR THE PERIOD 36.00
+====================================================================================================
+
+  SUMMARY
+  ------------------------------
+  Weekdays worked         :  8
+  Saturdays worked        :  1  (08 Aug 2026)
+  Total days worked       :  9
+  Hours per working day   :  4.00
+  TOTAL HOURS             :  36.00
+
+  NOTES
+  ------------------------------
+  - Sundays are excluded. Saturdays are excluded except 08 Aug 2026, which was worked on the
+    careers page and is included in this sheet.
+  - 31 Jul 2026 and 07 Aug 2026 fall on working weekdays but have no recorded project activity,
+    and are therefore logged at zero hours.
+  - Daily entries are based on the recorded version history of the website files.
+
+
+  __________________________________        __________________________________
+  Submitted by                              Approved by
+  Parthiban Ramachandran                    Ariyalur Golden Hospital
+
+  Date: ____________________                Date: ____________________
+
+====================================================================================================
