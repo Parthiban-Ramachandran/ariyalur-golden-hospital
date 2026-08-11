@@ -1187,6 +1187,94 @@ strong {
   font-size: .95rem;
 }
 
+/* Founders — portrait-led leadership cards on the About page */
+.founders-section {
+  background: var(--surface);
+}
+
+.founders-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: var(--gap);
+  max-width: 1040px;
+  margin-inline: auto;
+}
+
+.founder-card {
+  display: grid;
+  grid-template-columns: minmax(180px, .78fr) minmax(0, 1fr);
+  min-height: 390px;
+  overflow: hidden;
+  background: var(--white);
+  border: 1px solid var(--line);
+  border-radius: var(--r-xl);
+  box-shadow: var(--sh-sm);
+  transition: transform var(--t), box-shadow var(--t), border-color var(--t);
+}
+
+.founder-card:hover {
+  transform: translateY(-6px);
+  border-color: var(--blue-200);
+  box-shadow: var(--sh-md);
+}
+
+.founder-card__portrait {
+  position: relative;
+  min-height: 390px;
+  overflow: hidden;
+  background: var(--blue-100);
+}
+
+.founder-card__portrait img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center top;
+  transition: transform var(--t);
+}
+
+.founder-card:hover .founder-card__portrait img {
+  transform: scale(1.025);
+}
+
+.founder-card__body {
+  align-self: center;
+  padding: 32px 28px;
+}
+
+.founder-card__label {
+  display: inline-flex;
+  margin-bottom: 12px;
+  padding: 6px 12px;
+  border-radius: var(--r-pill);
+  color: var(--green-800);
+  background: var(--green-050);
+  border: 1px solid var(--green-200);
+  font-size: .72rem;
+  font-weight: 800;
+  letter-spacing: .07em;
+  text-transform: uppercase;
+}
+
+.founder-card h3 {
+  margin-bottom: 7px;
+}
+
+.founder-card__qual {
+  margin-bottom: 15px;
+  color: var(--blue-700);
+  font-size: .87rem;
+  font-weight: 700;
+  line-height: 1.5;
+}
+
+.founder-card__body > p:last-child {
+  color: var(--muted);
+  font-size: .93rem;
+}
+
 .icon-badge {
   width: 58px;
   height: 58px;
@@ -3768,6 +3856,11 @@ ol.legal-list {
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 
+  .founders-grid {
+    grid-template-columns: 1fr;
+    max-width: 760px;
+  }
+
   .cta-banner {
     padding: 42px 34px;
   }
@@ -4002,6 +4095,19 @@ ol.legal-list {
 
   .row-3 {
     grid-template-columns: 1fr;
+  }
+
+  .founders-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .founder-card {
+    grid-template-columns: minmax(140px, .75fr) minmax(0, 1fr);
+    min-height: 340px;
+  }
+
+  .founder-card__portrait {
+    min-height: 340px;
   }
 
   /* two across, then one, below the desktop three-up layout */
@@ -4262,6 +4368,18 @@ ol.legal-list {
 @media (max-width: 480px) {
   .dept-index {
     grid-template-columns: 1fr;
+  }
+
+  .founder-card {
+    grid-template-columns: 1fr;
+  }
+
+  .founder-card__portrait {
+    min-height: 430px;
+  }
+
+  .founder-card__body {
+    padding: 26px 24px 28px;
   }
 
   /* the ghost numeral is decoration — drop it before it squeezes the title */
