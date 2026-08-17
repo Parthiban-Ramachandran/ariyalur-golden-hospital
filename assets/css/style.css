@@ -4509,6 +4509,19 @@ ol.legal-list {
   }
 }
 
+/* Narrowest phones — the header row has to hold the logo, the emergency call
+   button and the menu toggle, so the wordmark gives way to the logo alone.
+   The .brand anchor keeps its aria-label, so the link is still named. */
+@media (max-width: 435px) {
+  .site-header .brand>span:not(.brand__mark) {
+    display: none;
+  }
+
+  .site-header .brand {
+    gap: 0;
+  }
+}
+
 @media print {
 
   .site-header,
